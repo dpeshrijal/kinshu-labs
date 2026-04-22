@@ -1188,11 +1188,8 @@ export default function HomePage() {
               Join a more selective network for high-agency builders.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              <ActionLink href="deepeshrijal@gmail.com" tone="dark">
+              <ActionLink href="mailto:deepeshrijal@gmail.com" tone="dark">
                 Apply as dev
-              </ActionLink>
-              <ActionLink href="#process" tone="secondary">
-                See the vetting
               </ActionLink>
             </div>
           </Reveal>
