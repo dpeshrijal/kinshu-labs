@@ -516,20 +516,26 @@ function Avatar({
 
 function Field({
   label,
+  name,
   placeholder,
   type = "text",
   className = "",
+  required = false,
 }: {
   label: string;
+  name: string;
   placeholder: string;
   type?: string;
   className?: string;
+  required?: boolean;
 }) {
   return (
     <label className={`block ${className}`}>
       <span className="mb-2 block text-sm font-medium text-black">{label}</span>
       <input
+        name={name} // Passed to input
         type={type}
+        required={required} // Passed to input
         aria-label={label}
         placeholder={placeholder}
         className="h-14 w-full rounded-[20px] border-2 border-black bg-zinc-50 px-4 text-base font-normal text-black outline-none transition duration-300 ease-out placeholder:text-black/40 focus:border-[3px] focus:bg-white"
@@ -540,17 +546,23 @@ function Field({
 
 function TextareaField({
   label,
+  name,
   placeholder,
   className = "",
+  required = false,
 }: {
   label: string;
+  name: string;
   placeholder: string;
   className?: string;
+  required?: boolean;
 }) {
   return (
     <label className={`block ${className}`}>
       <span className="mb-2 block text-sm font-medium text-black">{label}</span>
       <textarea
+        name={name}
+        required={required}
         aria-label={label}
         placeholder={placeholder}
         rows={5}
@@ -867,7 +879,8 @@ export default function HomePage() {
               Meet the engineers who build the future
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-6 text-black/60 sm:hidden">
-              A rotating shortlist of vetted AI engineers, optimized for quick scanning on smaller screens.
+              A rotating shortlist of vetted AI engineers, optimized for quick
+              scanning on smaller screens.
             </p>
           </Reveal>
 
@@ -1085,21 +1098,22 @@ export default function HomePage() {
             <div className="rounded-[28px] border-2 border-black bg-white p-8">
               <SectionPill tone="sand">Request a match</SectionPill>
               <h2 className="mt-6 text-3xl font-semibold tracking-[-0.05em] text-black sm:text-5xl">
-                Tell us what you need.
+                Ready to build?
               </h2>
               <p className="mt-5 max-w-xl text-base leading-7 text-black/72 sm:text-lg sm:leading-8">
-                We reply with a curated shortlist in 48 hours.
+                Tell us about your project. We’ll hand-pick the best fit from
+                our network and respond within 48 hours.
               </p>
 
               <div className="mt-10 hidden space-y-4 sm:block">
                 {[
-                  "Senior AI engineers only",
-                  "Technical vetting already done",
-                  "Founder-ready communication",
+                  "Top 1% AI Specialists",
+                  "Rigorous Technical Audit",
+                  "Product-Minded Partners",
                 ].map((item) => (
                   <div
                     key={item}
-                    className="flex items-center gap-3 text-sm text-black/76"
+                    className="flex items-center gap-3 text-sm font-medium text-black"
                   >
                     <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-black bg-[#D4FF00]">
                       <Check className="h-4 w-4" />
@@ -1110,27 +1124,48 @@ export default function HomePage() {
               </div>
             </div>
 
-            <form className="rounded-[28px] border-2 border-black bg-white p-6 sm:p-8">
+            <form
+              action="https://formspree.io/f/xyklbkdn"
+              method="POST"
+              className="rounded-[28px] border-2 border-black bg-white p-6 sm:p-8"
+            >
               <div className="grid gap-5 sm:grid-cols-2">
-                <Field label="Founder name" placeholder="Jane Smith" />
                 <Field
+                  name="founder_name"
+                  label="Founder name"
+                  placeholder="Jane Smith"
+                />
+                <Field
+                  name="email"
                   label="Work email"
                   placeholder="jane@startup.com"
                   type="email"
                 />
-                <Field label="Company" placeholder="Acme AI" />
-                <Field label="Hiring timeline" placeholder="This month" />
-                <Field
-                  label="What are you building?"
-                  placeholder="RAG copilot, search, AI ops..."
-                  className="sm:col-span-2"
-                />
+                <Field name="company" label="Company" placeholder="Acme AI" />
+
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-semibold text-black">
+                    Hiring timeline
+                  </label>
+                  <select
+                    className="h-[52px] rounded-xl border-2 border-black bg-white px-4 text-sm outline-none focus:bg-zinc-50"
+                    name="timeline"
+                  >
+                    <option value="immediately">Immediately</option>
+                    <option value="1-2-weeks">In 1–2 weeks</option>
+                    <option value="1-month">In 1 month</option>
+                    <option value="exploring">Just exploring</option>
+                  </select>
+                </div>
+
                 <TextareaField
+                  name="message"
                   label="Who do you need to hire?"
-                  placeholder="Role, stack, stage, and urgency."
+                  placeholder="e.g. A Senior LLM Engineer to build a RAG pipeline using Pinecone. Ideally someone with FinTech experience."
                   className="sm:col-span-2"
                 />
-                <div className="flex justify-center sm:col-span-2">
+
+                <div className="flex flex-col items-center justify-center gap-3 mt-4 sm:col-span-2">
                   <ActionButton type="submit" fullWidth={false}>
                     Submit request
                     <ArrowRight className="h-4 w-4" />
@@ -1147,13 +1182,13 @@ export default function HomePage() {
           <Reveal className="rounded-[32px] border-2 border-black bg-[#FFF5C9] p-8 text-center sm:p-10">
             <SectionPill tone="white">For developers</SectionPill>
             <h2 className="mt-6 text-3xl font-semibold tracking-[-0.05em] text-black sm:text-5xl lg:text-[3.75rem]">
-              Nepal-based AI engineer?
+              Nepal based AI engineer?
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-black/72 sm:max-w-2xl sm:text-lg sm:leading-8">
               Join a more selective network for high-agency builders.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              <ActionLink href="mailto:hello@example.com" tone="dark">
+              <ActionLink href="deepeshrijal@gmail.com" tone="dark">
                 Apply as dev
               </ActionLink>
               <ActionLink href="#process" tone="secondary">
