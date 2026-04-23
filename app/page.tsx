@@ -904,21 +904,40 @@ export default function HomePage() {
 
       <header className="sticky top-0 z-50 border-b-2 border-black bg-white/95 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-6 sm:py-4 lg:px-8">
-          <Link href="#" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 rotate-[-3deg] items-center justify-center rounded-[14px] border-2 border-black bg-[#D4FF00] text-black">
-              <Stars className="h-4 w-4" />
+          <Link href="#" className="flex min-w-0 items-center gap-3">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px] border-2 border-black bg-white">
+              <svg
+                className="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="3"
+                  y="2"
+                  width="4"
+                  height="20"
+                  rx="1.2"
+                  fill="#111111"
+                />
+                <path
+                  d="M9 11.2L19.5 2H21L12.8 11L21 22H19.5L9 12.8V11.2Z"
+                  fill="#111111"
+                />
+              </svg>
             </div>
-            <div>
-              <div className="text-base font-semibold tracking-tight">
+
+            <div className="min-w-0">
+              <div className="truncate text-base font-semibold leading-none tracking-tight text-black sm:text-lg">
                 {brandName}
               </div>
-              <div className="hidden text-xs text-black/55 sm:block">
-                Vetted Network of Senior AI engineers
+              <div className="hidden pt-1 text-xs leading-none text-black/55 sm:block">
+                Vetted network of senior AI engineers
               </div>
             </div>
           </Link>
 
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-3">
             <ActionLink href="#match" tone="secondary">
               Hire talent
             </ActionLink>
@@ -1340,8 +1359,26 @@ export default function HomePage() {
       <footer className="border-t-2 border-black bg-white">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-10 text-sm text-black/70 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 text-black">
-            <div className="flex h-10 w-10 items-center justify-center rounded-[14px] border-2 border-black bg-[#D4FF00]">
-              <Globe2 className="h-4 w-4" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-[14px] border-2 border-black ">
+              <svg
+                className="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="3"
+                  y="2"
+                  width="4"
+                  height="20"
+                  rx="1.2"
+                  fill="#111111"
+                />
+                <path
+                  d="M9 11.2L19.5 2H21L12.8 11L21 22H19.5L9 12.8V11.2Z"
+                  fill="#111111"
+                />
+              </svg>
             </div>
             {brandName}
           </div>
