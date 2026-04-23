@@ -21,7 +21,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-const brandName = "Kinshu Labs";
+const brandName = "Kinshu";
 
 const featuredTalent = [
   {
@@ -907,21 +907,22 @@ export default function HomePage() {
           <Link href="#" className="flex min-w-0 items-center gap-3">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px] border-2 border-black bg-white">
               <svg
-                className="h-6 w-6"
+                className="h-7 w-7"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
               >
                 <rect
-                  x="3"
+                  x="2.75"
                   y="2"
-                  width="4"
+                  width="5"
                   height="20"
-                  rx="1.2"
+                  rx="2.2"
                   fill="#111111"
                 />
                 <path
-                  d="M9 11.2L19.5 2H21L12.8 11L21 22H19.5L9 12.8V11.2Z"
+                  d="M10.25 10.8L19.75 2H22L13.7 12L22 22H19.75L10.25 13.2V10.8Z"
                   fill="#111111"
                 />
               </svg>
@@ -929,10 +930,10 @@ export default function HomePage() {
 
             <div className="min-w-0">
               <div className="truncate text-base font-semibold leading-none tracking-tight text-black sm:text-lg">
-                {brandName}
+                Kinshu
               </div>
               <div className="hidden pt-1 text-xs leading-none text-black/55 sm:block">
-                Vetted network of senior AI engineers
+                Vetted senior AI engineers
               </div>
             </div>
           </Link>
@@ -1361,21 +1362,22 @@ export default function HomePage() {
           <div className="flex items-center gap-3 text-black">
             <div className="flex h-10 w-10 items-center justify-center rounded-[14px] border-2 border-black ">
               <svg
-                className="h-6 w-6"
+                className="h-7 w-7"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
               >
                 <rect
-                  x="3"
+                  x="2.75"
                   y="2"
-                  width="4"
+                  width="5"
                   height="20"
-                  rx="1.2"
+                  rx="2.2"
                   fill="#111111"
                 />
                 <path
-                  d="M9 11.2L19.5 2H21L12.8 11L21 22H19.5L9 12.8V11.2Z"
+                  d="M10.25 10.8L19.75 2H22L13.7 12L22 22H19.75L10.25 13.2V10.8Z"
                   fill="#111111"
                 />
               </svg>
