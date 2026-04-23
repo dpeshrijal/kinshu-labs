@@ -16,7 +16,7 @@ export function DeveloperCtaSection() {
             for global teams.
           </p>
           <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-            <ActionLink href="mailto:deepeshrijal@gmail.com" tone="dark">
+            <ActionLink href="mailto:hello@kinshulabs.com" tone="dark">
               Apply as dev
             </ActionLink>
           </div>
