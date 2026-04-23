@@ -933,7 +933,7 @@ export default function HomePage() {
                 Kinshu
               </div>
               <div className="hidden pt-1 text-xs leading-none text-black/55 sm:block">
-                Vetted senior AI engineers
+                Vetted Senior AI Engineers
               </div>
             </div>
           </Link>
