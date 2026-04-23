@@ -42,7 +42,7 @@ export function RequestMatchSection() {
           </div>
 
           <form
-            action="https://formspree.io/f/xyklbkdn"
+            action="https://formspree.io/f/mjgjjovw"
             method="POST"
             className="rounded-[28px] border-2 border-black bg-white p-6 sm:p-8"
           >
