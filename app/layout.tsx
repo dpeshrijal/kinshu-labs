@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 
 import "./globals.css";
 import { cn } from "@/lib/utils";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Kinshu | Boutique AI Talent Marketplace",
@@ -22,7 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          inter.className,
+          "font-sans",
           "min-h-screen bg-[#FAFAFA] text-zinc-900",
         )}
       >

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { Outfit } from "next/font/google";
 import { useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import {
@@ -19,13 +18,8 @@ import {
   Sparkles,
   Stars,
   Workflow,
-  Zap,
+  type LucideIcon,
 } from "lucide-react";
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
 
 const brandName = "Kinshu Labs";
 
@@ -314,32 +308,61 @@ const techGroups = [
     title: "Models & APIs",
     icon: BrainCircuit,
     items: ["OpenAI", "Claude", "Gemini", "Llama 3", "Mistral"],
+    description: "Production LLM APIs and open model choices.",
     tone: "bg-[#FFF5C9]",
   },
   {
     title: "Orchestration",
     icon: Workflow,
     items: ["LangChain", "LangGraph", "LlamaIndex", "DSPy", "CrewAI"],
+    description: "Agent workflows, tool use, and reusable AI pipelines.",
     tone: "bg-[#E9E1FF]",
   },
   {
     title: "Retrieval & Search",
     icon: Globe2,
     items: ["Pinecone", "Weaviate", "Qdrant", "pgvector", "Elasticsearch"],
+    description: "Search quality, indexing, chunking, and knowledge systems.",
     tone: "bg-[#DFF4FF]",
   },
   {
     title: "Infra & Serving",
     icon: Code2,
     items: ["PyTorch", "vLLM", "Modal", "Docker", "Kubernetes"],
+    description: "Reliable model serving, deployment, and cost control.",
     tone: "bg-[#EEFF9D]",
   },
   {
     title: "Evals & Observability",
     icon: Sparkles,
     items: ["LangSmith", "Promptfoo", "Weights & Biases", "Helicone", "Arize"],
+    description: "Testing, monitoring, and release confidence for AI features.",
     tone: "bg-[#FFE1EE]",
   },
+] as const;
+
+const heroProcessSteps = [
+  {
+    label: "Brief",
+    description: "Share the product goal, stack, and working style.",
+    icon: MessageSquareText,
+  },
+  {
+    label: "Match",
+    description: "We shortlist vetted AI engineers with relevant depth.",
+    icon: BrainCircuit,
+  },
+  {
+    label: "Start",
+    description: "Interview, onboard, and begin shipping in days.",
+    icon: Check,
+  },
+] as const;
+
+const heroMetrics = [
+  { value: "24-48h", label: "shortlist" },
+  { value: "Top 1%", label: "technical filter" },
+  { value: "US-ready", label: "overlap" },
 ] as const;
 
 function Reveal({
@@ -381,7 +404,7 @@ function SectionPill({
 
   return (
     <div
-      className={`inline-flex items-center gap-2 rounded-full border-2 border-black px-4 py-2 text-xs font-medium text-black ${tones[tone]} ${className}`}
+      className={`inline-flex items-center gap-2 rounded-full border-2 border-black px-4 py-2 text-xs font-medium uppercase text-black ${tones[tone]} ${className}`}
     >
       <Sparkles className="h-3.5 w-3.5" />
       {children}
@@ -393,12 +416,12 @@ function StickerIcon({
   icon: Icon,
   className = "",
 }: {
-  icon: typeof Sparkles;
+  icon: LucideIcon;
   className?: string;
 }) {
   return (
     <div
-      className={`flex h-14 w-14 items-center justify-center rounded-full border-2 border-black bg-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] ${className}`}
+      className={`flex h-14 w-14 items-center justify-center rounded-full border-2 border-black bg-white text-black ${className}`}
     >
       <Icon className="h-6 w-6" />
     </div>
@@ -415,9 +438,12 @@ function ActionLink({
   tone?: "primary" | "secondary" | "dark";
 }) {
   const tones = {
-    primary: "bg-[#D4FF00] text-black",
-    secondary: "bg-white text-black",
-    dark: "bg-black text-white",
+    primary:
+      "border-black bg-[#D4FF00] text-black",
+    secondary:
+      "border-black bg-white text-black hover:bg-[#FFF5C9]",
+    dark:
+      "border-black bg-black text-white hover:bg-zinc-900",
   };
 
   return (
@@ -428,7 +454,7 @@ function ActionLink({
     >
       <Link
         href={href}
-        className={`inline-flex w-full items-center justify-center gap-2 rounded-full border-2 border-black px-5 py-2.5 text-sm font-medium transition duration-300 ease-out sm:w-auto sm:px-6 sm:py-3 ${tones[tone]}`}
+        className={`inline-flex w-full items-center justify-center gap-2 rounded-full border-2 px-5 py-2.5 text-sm font-medium transition duration-300 ease-out sm:w-auto sm:px-6 sm:py-3 ${tones[tone]}`}
       >
         {children}
       </Link>
@@ -453,7 +479,7 @@ function ActionButton({
     >
       <button
         type={type}
-        className={`inline-flex items-center justify-center gap-2 rounded-full border-2 border-black bg-[#D4FF00] px-6 py-3 text-sm font-medium text-black shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition duration-300 ease-out hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] sm:px-7 ${
+        className={`inline-flex items-center justify-center gap-2 rounded-full border-2 border-black bg-[#D4FF00] px-6 py-3 text-sm font-medium text-black transition duration-300 ease-out sm:px-7 ${
           fullWidth ? "w-full" : "w-full sm:w-auto"
         }`}
       >
@@ -461,6 +487,78 @@ function ActionButton({
       </button>
     </motion.div>
   );
+}
+
+function Field({
+  label,
+  name,
+  placeholder,
+  type = "text",
+  className = "",
+  required = false,
+}: {
+  label: string;
+  name: string;
+  placeholder: string;
+  type?: string;
+  className?: string;
+  required?: boolean;
+}) {
+  return (
+    <label className={`block ${className}`}>
+      <span className="mb-2 block text-sm font-medium text-black">{label}</span>
+      <input
+        name={name} // Passed to input
+        type={type}
+        required={required} // Passed to input
+        aria-label={label}
+        placeholder={placeholder}
+        className="h-14 w-full rounded-[20px] border-2 border-black bg-[#FBFBF7] px-4 text-base font-normal text-black outline-none transition duration-300 ease-out placeholder:text-black/40 focus:bg-white"
+      />
+    </label>
+  );
+}
+
+function TextareaField({
+  label,
+  name,
+  placeholder,
+  className = "",
+  required = false,
+}: {
+  label: string;
+  name: string;
+  placeholder: string;
+  className?: string;
+  required?: boolean;
+}) {
+  return (
+    <label className={`block ${className}`}>
+      <span className="mb-2 block text-sm font-medium text-black">{label}</span>
+      <textarea
+        name={name}
+        required={required}
+        aria-label={label}
+        placeholder={placeholder}
+        rows={5}
+        className="w-full rounded-[24px] border-2 border-black bg-[#FBFBF7] px-4 py-4 text-base font-normal leading-7 text-black outline-none transition duration-300 ease-out placeholder:text-black/40 focus:bg-white"
+      />
+    </label>
+  );
+}
+
+function getAvailabilityStyles(availability: string) {
+  const normalized = availability.toLowerCase();
+
+  if (normalized.includes("available")) {
+    return "bg-[#DFF4FF]";
+  }
+
+  if (normalized.includes("week")) {
+    return "bg-[#FFF5C9]";
+  }
+
+  return "bg-[#F1F1F1]";
 }
 
 function Avatar({
@@ -514,100 +612,47 @@ function Avatar({
   );
 }
 
-function Field({
-  label,
-  name,
-  placeholder,
-  type = "text",
-  className = "",
-  required = false,
-}: {
-  label: string;
-  name: string;
-  placeholder: string;
-  type?: string;
-  className?: string;
-  required?: boolean;
-}) {
-  return (
-    <label className={`block ${className}`}>
-      <span className="mb-2 block text-sm font-medium text-black">{label}</span>
-      <input
-        name={name} // Passed to input
-        type={type}
-        required={required} // Passed to input
-        aria-label={label}
-        placeholder={placeholder}
-        className="h-14 w-full rounded-[20px] border-2 border-black bg-zinc-50 px-4 text-base font-normal text-black outline-none transition duration-300 ease-out placeholder:text-black/40 focus:border-[3px] focus:bg-white"
-      />
-    </label>
-  );
-}
+function anonymizeName(name: string) {
+  return name
+    .trim()
+    .split(/\s+/)
+    .map((part, index) => {
+      if (index === 0) {
+        const [firstLetter = ""] = Array.from(part);
 
-function TextareaField({
-  label,
-  name,
-  placeholder,
-  className = "",
-  required = false,
-}: {
-  label: string;
-  name: string;
-  placeholder: string;
-  className?: string;
-  required?: boolean;
-}) {
-  return (
-    <label className={`block ${className}`}>
-      <span className="mb-2 block text-sm font-medium text-black">{label}</span>
-      <textarea
-        name={name}
-        required={required}
-        aria-label={label}
-        placeholder={placeholder}
-        rows={5}
-        className="w-full rounded-[24px] border-2 border-black bg-zinc-50 px-4 py-4 text-base font-normal text-black outline-none transition duration-300 ease-out placeholder:text-black/40 focus:border-[3px] focus:bg-white"
-      />
-    </label>
-  );
-}
+        return firstLetter ? `${firstLetter}${"*".repeat(4)}` : "";
+      }
 
-function getAvailabilityStyles(availability: string) {
-  const normalized = availability.toLowerCase();
-
-  if (normalized.includes("available")) {
-    return "bg-[#DFF4FF]";
-  }
-
-  if (normalized.includes("week")) {
-    return "bg-[#FFF5C9]";
-  }
-
-  return "bg-[#F1F1F1]";
+      return part;
+    })
+    .filter(Boolean)
+    .join(" ");
 }
 
 function TalentCard({ talent }: { talent: TalentProfile }) {
+  const displayName = anonymizeName(talent.name);
+
   return (
     <motion.article
-      whileHover={{ scale: 1.01, y: -2 }}
-      className="relative h-full rounded-[28px] border-2 border-black bg-white p-5 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition duration-300 ease-out hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] sm:p-6"
+      whileHover={{ scale: 1.012, y: -3, rotate: -0.25 }}
+      className="relative h-full rounded-[28px] border-2 border-black bg-white p-5 transition duration-300 ease-out sm:p-6"
     >
-      <div className="flex items-start justify-between gap-4">
+      <div className="flex items-start justify-center gap-4 sm:justify-between">
         <div className="rounded-full border-2 border-black bg-[#D4FF00] px-3 py-1 text-xs font-medium">
           Verified
         </div>
         {talent.note ? (
-          <div className="hidden rounded-full border-2 border-black bg-[#FFF5C9] px-3 py-1 text-xs font-medium sm:inline-flex">
+          <div className="hidden rotate-1 rounded-full border-2 border-black bg-[#FFF5C9] px-3 py-1 text-xs font-medium sm:inline-flex">
             {talent.note}
           </div>
         ) : null}
       </div>
 
-      <div className="mt-5 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+      <div className="mt-5 flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
         <Avatar {...talent.avatar} />
         <div className="min-w-0">
           <h3 className="text-xl font-semibold tracking-tight text-black sm:text-2xl">
-            {talent.name}
+            {displayName}
           </h3>
           <p className="mt-1 text-sm text-black/60">{talent.role}</p>
         </div>
@@ -617,7 +662,7 @@ function TalentCard({ talent }: { talent: TalentProfile }) {
         {talent.summary}
       </p>
 
-      <div className="mt-5 flex flex-wrap gap-2 sm:mt-6">
+      <div className="mt-5 flex flex-wrap justify-center gap-2 sm:mt-6 sm:justify-start">
         {talent.skills.map((skill, index) => (
           <span
             key={skill.label}
@@ -657,15 +702,137 @@ function TalentCard({ talent }: { talent: TalentProfile }) {
   );
 }
 
-function WavyDivider() {
+function HeroProcessVisual() {
   return (
-    <div aria-hidden className="hidden bg-white leading-none sm:block">
+    <div className="mx-auto w-full max-w-[31rem]">
+      <motion.div
+        whileHover={{ scale: 1.01, y: -2, rotate: 0.2 }}
+        className="relative overflow-hidden rounded-[30px] border-2 border-black bg-white p-5 transition duration-300 ease-out sm:p-6"
+      >
+        <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full border-2 border-black bg-[#D4FF00]" />
+        <div className="absolute right-8 top-10 h-3 w-3 rounded-full bg-[#FFB8D6]" />
+        <div className="absolute right-16 top-16 h-2 w-2 rounded-full bg-[#8ED9FF]" />
+
+        <div className="relative flex items-center justify-between gap-4 border-b-2 border-black pb-4">
+          <div>
+            <p className="inline-flex rotate-1 rounded-full border-2 border-black bg-[#FFF5C9] px-3 py-1 text-xs font-medium uppercase text-black">
+              Matching process
+            </p>
+            <h2 className="mt-3 text-lg font-semibold leading-7 text-zinc-950">
+              From request to onboarded engineer
+            </h2>
+          </div>
+          <div className="hidden h-12 w-12 items-center justify-center rounded-full border-2 border-black bg-[#D4FF00] text-black sm:flex">
+            <Workflow className="h-5 w-5" />
+          </div>
+        </div>
+
+        <div className="relative mt-5 space-y-5">
+          {heroProcessSteps.map((step, index) => {
+            const Icon = step.icon;
+
+            return (
+              <div key={step.label} className="relative flex gap-4">
+                {index < heroProcessSteps.length - 1 ? (
+                  <div
+                    aria-hidden
+                    className="absolute left-5 top-11 h-[calc(100%+1.25rem)] w-0.5 bg-black"
+                  />
+                ) : null}
+                <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-black bg-white text-zinc-950">
+                  <Icon className="h-4 w-4" />
+                </div>
+                <div className="min-w-0 pb-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-semibold text-black/40">
+                      0{index + 1}
+                    </span>
+                    <h3 className="text-base font-semibold leading-6 text-zinc-950">
+                      {step.label}
+                    </h3>
+                  </div>
+                  <p className="mt-1 text-sm leading-6 text-zinc-600">
+                    {step.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="relative mt-5 grid grid-cols-3 gap-2">
+          {heroMetrics.map((metric, index) => (
+            <div
+              key={metric.label}
+              className={`rounded-[18px] border-2 border-black p-3 text-center ${
+                index === 0
+                  ? "bg-[#D4FF00]"
+                  : index === 1
+                    ? "bg-[#DFF4FF]"
+                    : "bg-[#FFE1EE]"
+              }`}
+            >
+              <div className="text-sm font-semibold leading-6 text-zinc-950">
+                {metric.value}
+              </div>
+              <div className="text-xs leading-5 text-zinc-500">
+                {metric.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+function SketchDivider({
+  bg,
+  fill,
+  flip = false,
+}: {
+  bg: "white" | "lemon";
+  fill: "white" | "lemon";
+  flip?: boolean;
+}) {
+  const bgClass = {
+    white: "bg-white",
+    lemon: "bg-[#F7F7F2]",
+  }[bg];
+  const fillClass = {
+    white: "fill-white",
+    lemon: "fill-[#F7F7F2]",
+  }[fill];
+
+  return (
+    <div aria-hidden className={`${bgClass} leading-none`}>
       <svg
-        viewBox="0 0 1440 90"
-        className="block h-14 w-full fill-[#F7F7F2] sm:h-16"
+        viewBox="0 0 1440 96"
+        className={`block h-10 w-full ${fillClass} sm:h-16 ${
+          flip ? "scale-x-[-1]" : ""
+        }`}
         preserveAspectRatio="none"
       >
-        <path d="M0 26C72 48 144 10 216 26C288 42 360 66 432 58C504 50 576 12 648 16C720 20 792 66 864 66C936 66 1008 18 1080 14C1152 10 1224 48 1296 48C1368 48 1404 30 1440 22V90H0Z" />
+        <path d="M0 34C82 18 145 42 226 35C332 25 420 10 524 31C630 52 728 72 829 49C925 27 1006 13 1111 33C1227 55 1328 45 1440 25V96H0Z" />
+        <path
+          d="M0 34C82 18 145 42 226 35C332 25 420 10 524 31C630 52 728 72 829 49C925 27 1006 13 1111 33C1227 55 1328 45 1440 25"
+          fill="none"
+          stroke="#111111"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="3"
+          vectorEffect="non-scaling-stroke"
+        />
+        <path
+          d="M16 44C98 27 160 51 240 44C345 34 430 21 534 40C642 60 734 78 838 57C936 36 1018 25 1120 43C1231 63 1330 53 1424 34"
+          fill="none"
+          opacity="0.72"
+          stroke="#D4FF00"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="7"
+          vectorEffect="non-scaling-stroke"
+        />
       </svg>
     </div>
   );
@@ -732,26 +899,14 @@ export default function HomePage() {
     setCurrentTalentPage(index);
   }
 
-  function goToPreviousTalentPage() {
-    setCurrentTalentPage(
-      (current) => (current - 1 + talentPages.length) % talentPages.length,
-    );
-  }
-
-  function goToNextTalentPage() {
-    setCurrentTalentPage((current) => (current + 1) % talentPages.length);
-  }
-
   return (
-    <main
-      className={`${outfit.className} relative overflow-hidden bg-white text-black`}
-    >
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_14%_18%,rgba(212,255,0,0.14),transparent_14%),radial-gradient(circle_at_86%_12%,rgba(255,245,0,0.1),transparent_10%)]" />
+    <main className="relative overflow-hidden bg-white text-black">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_14%_18%,rgba(212,255,0,0.16),transparent_15%),radial-gradient(circle_at_88%_10%,rgba(255,184,214,0.12),transparent_12%),radial-gradient(circle_at_78%_72%,rgba(142,217,255,0.12),transparent_16%)]" />
 
       <header className="sticky top-0 z-50 border-b-2 border-black bg-white/95 backdrop-blur-md">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-6 sm:py-4 lg:px-8">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-3 sm:px-6 sm:py-4 lg:px-8">
           <Link href="#" className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-[14px] border-2 border-black bg-[#D4FF00]">
+            <div className="flex h-10 w-10 rotate-[-3deg] items-center justify-center rounded-[14px] border-2 border-black bg-[#D4FF00] text-black">
               <Stars className="h-4 w-4" />
             </div>
             <div>
@@ -765,7 +920,7 @@ export default function HomePage() {
           </Link>
 
           <div className="flex items-center gap-3">
-            <ActionLink href="#featured-talent" tone="secondary">
+            <ActionLink href="#match" tone="secondary">
               Hire talent
             </ActionLink>
             <div className="hidden sm:block">
@@ -777,18 +932,21 @@ export default function HomePage() {
         </div>
       </header>
 
-      <section className="bg-white">
+      <section className="relative bg-white">
+        <div className="pointer-events-none absolute left-5 top-24 hidden h-16 w-16 rotate-12 rounded-full border-2 border-black bg-[#FFF5C9] md:block" />
+        <div className="pointer-events-none absolute bottom-14 right-8 hidden h-10 w-10 -rotate-12 rounded-[14px] border-2 border-black bg-[#FFE1EE] lg:block" />
         <div className="mx-auto max-w-7xl px-5 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-14 lg:px-8 lg:pb-24 lg:pt-20">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
             <Reveal>
               <SectionPill tone="lime" className="-rotate-2">
                 Top 1% AI Engineers
               </SectionPill>
-              <h1 className="mt-7 max-w-4xl text-[2.9rem] font-semibold tracking-[-0.06em] text-black sm:mt-8 sm:text-6xl lg:text-[4.5rem] lg:leading-[0.96]">
+              <h1 className="mt-7 max-w-4xl text-[2.75rem] font-semibold leading-[1.02] tracking-tight text-black sm:mt-8 sm:text-6xl sm:leading-[1] lg:text-[4.65rem]">
                 Senior AI Engineers, ready to ship today
               </h1>
               <p className="mt-5 max-w-xl text-base leading-7 text-black/72 sm:mt-6 sm:max-w-2xl sm:text-xl sm:leading-8">
-                Access pre-vetted experts in RAG, LLMs, and Agentic systems.
+                Access pre-vetted experts in RAG, LLMs, and agentic systems
+                without adding weeks of screening.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
                 <ActionLink href="#match" tone="primary">
@@ -801,86 +959,27 @@ export default function HomePage() {
               </div>
             </Reveal>
 
-            <Reveal delay={0.08} className="hidden lg:block">
-              <div className="mx-auto max-w-md">
-                <motion.div
-                  whileHover={{ scale: 1.01, y: -2 }}
-                  className="rounded-[30px] border-2 border-black bg-white p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition duration-300 ease-out hover:shadow-[10px_10px_0px_0px_rgba(0,0,0,1)]"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="rounded-full border-2 border-black bg-[#D4FF00] px-3 py-1 text-xs font-medium">
-                      Verified profile
-                    </div>
-                    <div className="rounded-full border-2 border-black bg-[#FFF5C9] px-3 py-1 text-xs font-medium">
-                      Most requested
-                    </div>
-                  </div>
-
-                  <div className="mt-5 flex items-center gap-4">
-                    <Avatar {...featuredTalent[0].avatar} />
-                    <div className="min-w-0">
-                      <h3 className="text-2xl font-semibold tracking-tight text-black">
-                        {featuredTalent[0].name}
-                      </h3>
-                      <p className="mt-1 text-sm text-black/60">
-                        {featuredTalent[0].role}
-                      </p>
-                    </div>
-                  </div>
-
-                  <p className="mt-6 text-sm leading-7 text-black/72">
-                    {featuredTalent[0].summary}
-                  </p>
-
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {featuredTalent[0].skills.map((skill) => (
-                      <span
-                        key={skill.label}
-                        className={`rounded-full border-2 border-black px-3 py-1 text-xs font-medium text-black ${skill.className}`}
-                      >
-                        {skill.label}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-
-                <div className="mt-5 grid gap-3 sm:grid-cols-3">
-                  {[
-                    ["Top 1%", "technical filter", "bg-[#D4FF00]"],
-                    ["Founder-safe", "communication", "bg-white"],
-                    ["Available", "this month", "bg-[#DFF4FF]"],
-                  ].map(([title, copy, tone]) => (
-                    <div
-                      key={title}
-                      className={`rounded-[20px] border-2 border-black p-4 ${tone}`}
-                    >
-                      <div className="text-base font-semibold tracking-tight">
-                        {title}
-                      </div>
-                      <p className="mt-1 text-sm text-black/65">{copy}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <Reveal delay={0.08}>
+              <HeroProcessVisual />
             </Reveal>
           </div>
         </div>
       </section>
 
-      <WavyDivider />
+      <SketchDivider bg="white" fill="lemon" />
 
       <section id="featured-talent" className="bg-[#F7F7F2]">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <Reveal className="">
+          <Reveal>
             <SectionPill tone="sand" className="rotate-2">
               Featured talent
             </SectionPill>
-            <h2 className="mt-6 text-3xl font-semibold tracking-[-0.05em] text-black sm:text-5xl lg:text-[3.75rem]">
-              Meet the engineers who build the future
+            <h2 className="mt-6 max-w-4xl text-3xl font-semibold leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-[3.75rem]">
+              Senior engineers, ready for serious AI work
             </h2>
-            <p className="mt-4 max-w-xl text-sm leading-6 text-black/60 sm:hidden">
-              A rotating shortlist of vetted AI engineers, optimized for quick
-              scanning on smaller screens.
+            <p className="mt-4 max-w-2xl text-base leading-7 text-black/65">
+              A short sample of vetted profiles across applied AI, retrieval,
+              evaluation, and platform engineering.
             </p>
           </Reveal>
 
@@ -907,9 +1006,14 @@ export default function HomePage() {
                           : "grid-cols-4"
                   }`}
                 >
-                  {talentPages[safeCurrentTalentPage]?.map((talent) => (
-                    <TalentCard key={talent.name} talent={talent} />
-                  ))}
+                  {talentPages[safeCurrentTalentPage]?.map(
+                    (talent, talentIndex) => (
+                      <TalentCard
+                        key={`${talent.name}-${talent.role}-${talentIndex}`}
+                        talent={talent}
+                      />
+                    ),
+                  )}
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -935,16 +1039,21 @@ export default function HomePage() {
         </div>
       </section>
 
+      <SketchDivider bg="lemon" fill="white" flip />
+
       <section id="process" className="bg-white">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <Reveal className="max-w-4xl">
-            <SectionPill tone="white">The vetting process</SectionPill>
-            <h2 className="mt-6 text-3xl font-semibold tracking-[-0.05em] text-black sm:text-5xl lg:text-[3.75rem]">
+            <SectionPill tone="white" className="-rotate-1">
+              The vetting process
+            </SectionPill>
+            <h2 className="mt-6 text-3xl font-semibold leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-[3.75rem]">
               Four checks before an intro.
             </h2>
-            {/* <p className="mt-5 max-w-2xl text-lg leading-8 text-black/72">
-              Technical depth, architecture, live coding, and communication.
-            </p> */}
+            <p className="mt-5 max-w-2xl text-base leading-7 text-black/65">
+              Technical depth, architecture, live coding, and communication are
+              verified before we recommend a candidate.
+            </p>
           </Reveal>
 
           <div className="mt-12 grid gap-5 lg:grid-cols-2">
@@ -954,11 +1063,11 @@ export default function HomePage() {
               return (
                 <Reveal key={step.number} delay={index * 0.06}>
                   <motion.div
-                    whileHover={{ scale: 1.005, y: -1 }}
+                    whileHover={{ scale: 1.005, y: -2, rotate: index % 2 ? 0.2 : -0.2 }}
                     className="grid gap-5 rounded-[26px] border-2 border-black bg-white p-5 transition duration-300 ease-out sm:grid-cols-[auto_1fr]"
                   >
                     <div className="flex items-center gap-4 sm:flex-col sm:items-start">
-                      <div className="text-5xl font-semibold tracking-[-0.05em] text-black/14">
+                      <div className="text-5xl font-semibold tracking-tight text-black/[0.14]">
                         {step.number}
                       </div>
                       <StickerIcon icon={Icon} />
@@ -980,29 +1089,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      <SketchDivider bg="white" fill="lemon" />
+
       <section className="bg-[#F7F7F2]">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-          <Reveal className="rounded-[32px] border-2 border-black bg-[#F7F7F2] p-8 sm:p-10">
+          <Reveal className="rounded-[32px] border-2 border-black bg-[#F7F7F2] p-6 sm:p-10">
             <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
               <div>
-                <SectionPill tone="lime">The Nepal advantage</SectionPill>
+                <SectionPill tone="lime" className="-rotate-2">
+                  The Nepal advantage
+                </SectionPill>
                 <div className="mt-6 flex items-center gap-3">
                   <StickerIcon icon={Gamepad2} className="hidden sm:flex" />
-                  <div className="rounded-full border-2 border-black bg-white px-4 py-2 text-sm font-medium">
+                  <div className="rotate-1 rounded-full border-2 border-black bg-white px-4 py-2 text-sm font-medium">
                     Time-zone advantage
                   </div>
                 </div>
-                <div className="mt-6">
-                  <h2 className="text-3xl font-semibold tracking-[-0.05em] text-black sm:text-5xl lg:text-[3.75rem]">
-                    <span className="block">You sleep</span>
-                    <span className="mt-3 flex items-center gap-3">
-                      <MoveDownRight className="hidden h-10 w-10 text-[#6D5EF7] sm:block" />
-                      <span>We ship.</span>
-                    </span>
-                  </h2>
-                </div>
+                <h2 className="mt-6 text-3xl font-semibold leading-[1.04] tracking-tight text-black sm:text-5xl lg:text-[3.75rem]">
+                  <span className="block">You sleep</span>
+                  <span className="mt-3 flex items-center gap-3">
+                    <MoveDownRight className="hidden h-10 w-10 text-[#6D5EF7] sm:block" />
+                    <span>We ship.</span>
+                  </span>
+                </h2>
                 <p className="mt-5 max-w-xl text-base leading-7 text-black/72 sm:max-w-2xl sm:text-lg sm:leading-8">
-                  Nepal gives US teams a practical follow-the-sun workflow.
+                  Nepal gives US teams a practical follow-the-sun workflow:
+                  clear evening handoffs, focused daytime execution, and
+                  morning updates.
                 </p>
               </div>
 
@@ -1010,13 +1123,13 @@ export default function HomePage() {
                 {overnightFlow.map((item, index) => (
                   <motion.div
                     key={item.label}
-                    whileHover={{ scale: 1.005, y: -1 }}
+                    whileHover={{ scale: 1.005, y: -1, rotate: index % 2 ? -0.2 : 0.2 }}
                     className="rounded-[24px] border-2 border-black bg-white p-5 transition duration-300 ease-out"
                   >
                     <div className="flex items-start gap-4">
                       <div className="relative flex h-14 w-14 shrink-0 items-center justify-center">
                         <div className="absolute left-1 top-1 h-12 w-12 rounded-full bg-[#D4FF00]" />
-                        <div className="relative text-3xl font-semibold tracking-[-0.06em] text-black">
+                        <div className="relative text-3xl font-semibold tracking-tight text-black">
                           {index + 1}
                         </div>
                       </div>
@@ -1040,12 +1153,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      <SketchDivider bg="lemon" fill="white" flip />
+
       <section className="bg-white">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <Reveal className="max-w-4xl">
-            <SectionPill tone="sand">Core stack</SectionPill>
-            <h2 className="mt-6 text-3xl font-semibold tracking-[-0.05em] text-black sm:text-5xl lg:text-[3.75rem]">
-              Coverage across the AI stack.
+            <SectionPill tone="sand" className="rotate-1">
+              Core stack
+            </SectionPill>
+            <h2 className="mt-6 text-3xl font-semibold leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-[3.75rem]">
+              AI expertise your team can hire for.
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-7 text-black/72 sm:text-lg sm:leading-8">
               Models, orchestration, retrieval, infra, and eval tooling our
@@ -1060,10 +1177,10 @@ export default function HomePage() {
               return (
                 <Reveal key={group.title} delay={index * 0.04}>
                   <motion.div
-                    whileHover={{ scale: 1.005, y: -1 }}
+                    whileHover={{ scale: 1.006, y: -2, rotate: index % 2 ? 0.2 : -0.2 }}
                     className="rounded-[26px] border-2 border-black bg-white p-5 transition duration-300 ease-out"
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-start gap-4">
                       <StickerIcon icon={Icon} />
                       <div>
                         <div
@@ -1071,17 +1188,20 @@ export default function HomePage() {
                         >
                           {group.title}
                         </div>
+                        <p className="mt-3 text-sm leading-6 text-black/65">
+                          {group.description}
+                        </p>
                       </div>
                     </div>
 
                     <div className="mt-5 flex flex-wrap gap-2">
                       {group.items.map((item) => (
-                        <div
+                        <span
                           key={item}
                           className="inline-flex items-center rounded-full border-2 border-black bg-[#FBFBF7] px-3 py-2 text-sm text-black"
                         >
                           {item}
-                        </div>
+                        </span>
                       ))}
                     </div>
                   </motion.div>
@@ -1092,16 +1212,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      <SketchDivider bg="white" fill="lemon" />
+
       <section id="match" className="bg-[#F7F7F2]">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <Reveal className="grid gap-8 lg:grid-cols-[0.92fr_1.08fr]">
-            <div className="rounded-[28px] border-2 border-black bg-white p-8">
-              <SectionPill tone="sand">Request a match</SectionPill>
-              <h2 className="mt-6 text-3xl font-semibold tracking-[-0.05em] text-black sm:text-5xl">
+            <div className="rounded-[28px] border-2 border-black bg-white p-6 sm:p-8">
+              <SectionPill tone="sand" className="-rotate-1">
+                Request a match
+              </SectionPill>
+              <h2 className="mt-6 text-3xl font-semibold leading-[1.08] tracking-tight text-black sm:text-5xl">
                 Ready to build?
               </h2>
               <p className="mt-5 max-w-xl text-base leading-7 text-black/72 sm:text-lg sm:leading-8">
-                Tell us about your project. We’ll hand-pick the best fit from
+                Tell us about your project. We'll hand-pick the best fit from
                 our network and respond within 48 hours.
               </p>
 
@@ -1148,11 +1272,11 @@ export default function HomePage() {
                     Hiring timeline
                   </label>
                   <select
-                    className="h-[52px] rounded-xl border-2 border-black bg-white px-4 text-sm outline-none focus:bg-zinc-50"
+                    className="h-14 rounded-[20px] border-2 border-black bg-[#FBFBF7] px-4 text-sm outline-none transition duration-300 ease-out focus:bg-white"
                     name="timeline"
                   >
                     <option value="immediately">Immediately</option>
-                    <option value="1-2-weeks">In 1–2 weeks</option>
+                    <option value="1-2-weeks">In 1-2 weeks</option>
                     <option value="1-month">In 1 month</option>
                     <option value="exploring">Just exploring</option>
                   </select>
@@ -1165,7 +1289,7 @@ export default function HomePage() {
                   className="sm:col-span-2"
                 />
 
-                <div className="flex flex-col items-center justify-center gap-3 mt-4 sm:col-span-2">
+                <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:col-span-2">
                   <ActionButton type="submit" fullWidth={false}>
                     Submit request
                     <ArrowRight className="h-4 w-4" />
@@ -1177,11 +1301,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      <SketchDivider bg="lemon" fill="white" flip />
+
       <section id="apply" className="bg-white">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
           <Reveal className="rounded-[32px] border-2 border-black bg-[#FFF5C9] p-8 text-center sm:p-10">
-            <SectionPill tone="white">For developers</SectionPill>
-            <h2 className="mt-6 text-3xl font-semibold tracking-[-0.05em] text-black sm:text-5xl lg:text-[3.75rem]">
+            <SectionPill tone="white" className="-rotate-1">
+              For developers
+            </SectionPill>
+            <h2 className="mt-6 text-3xl font-semibold leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-[3.75rem]">
               Nepal based AI engineer?
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-black/72 sm:max-w-2xl sm:text-lg sm:leading-8">
