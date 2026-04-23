@@ -262,13 +262,13 @@ const vettingSteps = [
   {
     number: "01",
     title: "Technical screening",
-    description: "Python, systems thinking, and core math.",
+    description: "Python, systems thinking, and core problem solving.",
     icon: Code2,
   },
   {
     number: "02",
     title: "Architecture deep dive",
-    description: "RAG, evals, infra, and model tradeoffs.",
+    description: "RAG, evals, infrastructure, and real model tradeoffs.",
     icon: BrainCircuit,
   },
   {
@@ -280,7 +280,7 @@ const vettingSteps = [
   {
     number: "04",
     title: "Communication check",
-    description: "Clear thinking, ownership, and founder readiness.",
+    description: "Clear thinking, ownership, and team readiness.",
     icon: MessageSquareText,
   },
 ] as const;
@@ -289,17 +289,18 @@ const overnightFlow = [
   {
     label: "US evening",
     title: "You hand off priorities",
-    description: "Your team signs off with context and blockers.",
+    description: "Your team signs off with context, tasks, and blockers.",
   },
   {
     label: "Nepal daytime",
-    title: "Work keeps moving",
-    description: "Execution continues while the US is offline.",
+    title: "Execution keeps moving",
+    description:
+      "Your engineer continues shipping while the US team is offline.",
   },
   {
     label: "US morning",
     title: "You wake up to progress",
-    description: "Updates land before your next workday starts.",
+    description: "Updates land before the next workday starts.",
   },
 ] as const;
 
@@ -344,12 +345,13 @@ const techGroups = [
 const heroProcessSteps = [
   {
     label: "Brief",
-    description: "Share the product goal, stack, and working style.",
+    description: "Share the kind of engineer you need.",
     icon: MessageSquareText,
   },
   {
     label: "Match",
-    description: "We shortlist vetted AI engineers with relevant depth.",
+    description:
+      "We shortlist vetted engineers with the right technical depth and working style.",
     icon: BrainCircuit,
   },
   {
@@ -361,8 +363,8 @@ const heroProcessSteps = [
 
 const heroMetrics = [
   { value: "24-48h", label: "shortlist" },
-  { value: "Top 1%", label: "technical filter" },
-  { value: "US-ready", label: "overlap" },
+  { value: "Rigorous", label: "technical vetting" },
+  { value: "Client-ready", label: "communication" },
 ] as const;
 
 function Reveal({
@@ -438,12 +440,9 @@ function ActionLink({
   tone?: "primary" | "secondary" | "dark";
 }) {
   const tones = {
-    primary:
-      "border-black bg-[#D4FF00] text-black",
-    secondary:
-      "border-black bg-white text-black hover:bg-[#FFF5C9]",
-    dark:
-      "border-black bg-black text-white hover:bg-zinc-900",
+    primary: "border-black bg-[#D4FF00] text-black",
+    secondary: "border-black bg-white text-black hover:bg-[#FFF5C9]",
+    dark: "border-black bg-black text-white hover:bg-zinc-900",
   };
 
   return (
@@ -914,7 +913,7 @@ export default function HomePage() {
                 {brandName}
               </div>
               <div className="hidden text-xs text-black/55 sm:block">
-                Vetted AI Engineering Network
+                Vetted Network of Senior AI engineers
               </div>
             </div>
           </Link>
@@ -942,11 +941,12 @@ export default function HomePage() {
                 Top 1% AI Engineers
               </SectionPill>
               <h1 className="mt-7 max-w-4xl text-[2.75rem] font-semibold leading-[1.02] tracking-tight text-black sm:mt-8 sm:text-6xl sm:leading-[1] lg:text-[4.65rem]">
-                Senior AI Engineers, ready to ship today
+                Senior AI engineers, ready to build
               </h1>
               <p className="mt-5 max-w-xl text-base leading-7 text-black/72 sm:mt-6 sm:max-w-2xl sm:text-xl sm:leading-8">
-                Access pre-vetted experts in RAG, LLMs, and agentic systems
-                without adding weeks of screening.
+                From RAG pipelines to agent workflows and model infra, we match
+                you with vetted engineers who can start fast and ship in
+                production.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
                 <ActionLink href="#match" tone="primary">
@@ -975,11 +975,11 @@ export default function HomePage() {
               Featured talent
             </SectionPill>
             <h2 className="mt-6 max-w-4xl text-3xl font-semibold leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-[3.75rem]">
-              Senior engineers, ready for serious AI work
+              Senior AI engineers with real production depth
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-7 text-black/65">
-              A short sample of vetted profiles across applied AI, retrieval,
-              evaluation, and platform engineering.
+              A small sample of vetted engineers across applied AI, retrieval,
+              evals, LLM products, and platform engineering.
             </p>
           </Reveal>
 
@@ -1048,11 +1048,11 @@ export default function HomePage() {
               The vetting process
             </SectionPill>
             <h2 className="mt-6 text-3xl font-semibold leading-[1.08] tracking-tight text-black sm:text-5xl lg:text-[3.75rem]">
-              Four checks before an intro.
+              Four checks before we introduce a candidate
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-7 text-black/65">
-              Technical depth, architecture, live coding, and communication are
-              verified before we recommend a candidate.
+              We assess technical depth, system design, live implementation, and
+              communication before anyone reaches your inbox.
             </p>
           </Reveal>
 
@@ -1063,7 +1063,11 @@ export default function HomePage() {
               return (
                 <Reveal key={step.number} delay={index * 0.06}>
                   <motion.div
-                    whileHover={{ scale: 1.005, y: -2, rotate: index % 2 ? 0.2 : -0.2 }}
+                    whileHover={{
+                      scale: 1.005,
+                      y: -2,
+                      rotate: index % 2 ? 0.2 : -0.2,
+                    }}
                     className="grid gap-5 rounded-[26px] border-2 border-black bg-white p-5 transition duration-300 ease-out sm:grid-cols-[auto_1fr]"
                   >
                     <div className="flex items-center gap-4 sm:flex-col sm:items-start">
@@ -1096,11 +1100,11 @@ export default function HomePage() {
           <Reveal className="rounded-[32px] border-2 border-black bg-[#F7F7F2] p-6 sm:p-10">
             <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
               <div>
-                <SectionPill tone="lime" className="-rotate-2">
+                {/* <SectionPill tone="lime" className="-rotate-2">
                   The Nepal advantage
-                </SectionPill>
+                </SectionPill> */}
                 <div className="mt-6 flex items-center gap-3">
-                  <StickerIcon icon={Gamepad2} className="hidden sm:flex" />
+                  <StickerIcon icon={Clock3} className="hidden sm:flex" />
                   <div className="rotate-1 rounded-full border-2 border-black bg-white px-4 py-2 text-sm font-medium">
                     Time-zone advantage
                   </div>
@@ -1113,9 +1117,9 @@ export default function HomePage() {
                   </span>
                 </h2>
                 <p className="mt-5 max-w-xl text-base leading-7 text-black/72 sm:max-w-2xl sm:text-lg sm:leading-8">
-                  Nepal gives US teams a practical follow-the-sun workflow:
-                  clear evening handoffs, focused daytime execution, and
-                  morning updates.
+                  For US teams, Nepal creates a practical follow-the-sun
+                  workflow: clear evening handoffs, focused execution overnight,
+                  and progress waiting in the morning.
                 </p>
               </div>
 
@@ -1123,7 +1127,11 @@ export default function HomePage() {
                 {overnightFlow.map((item, index) => (
                   <motion.div
                     key={item.label}
-                    whileHover={{ scale: 1.005, y: -1, rotate: index % 2 ? -0.2 : 0.2 }}
+                    whileHover={{
+                      scale: 1.005,
+                      y: -1,
+                      rotate: index % 2 ? -0.2 : 0.2,
+                    }}
                     className="rounded-[24px] border-2 border-black bg-white p-5 transition duration-300 ease-out"
                   >
                     <div className="flex items-start gap-4">
@@ -1177,7 +1185,11 @@ export default function HomePage() {
               return (
                 <Reveal key={group.title} delay={index * 0.04}>
                   <motion.div
-                    whileHover={{ scale: 1.006, y: -2, rotate: index % 2 ? 0.2 : -0.2 }}
+                    whileHover={{
+                      scale: 1.006,
+                      y: -2,
+                      rotate: index % 2 ? 0.2 : -0.2,
+                    }}
                     className="rounded-[26px] border-2 border-black bg-white p-5 transition duration-300 ease-out"
                   >
                     <div className="flex items-start gap-4">
@@ -1313,7 +1325,8 @@ export default function HomePage() {
               Nepal based AI engineer?
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-base leading-7 text-black/72 sm:max-w-2xl sm:text-lg sm:leading-8">
-              Join a more selective network for high-agency builders.
+              Join a selective network of senior engineers building AI products
+              for global teams.
             </p>
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
               <ActionLink href="mailto:deepeshrijal@gmail.com" tone="dark">
