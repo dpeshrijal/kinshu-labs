@@ -40,8 +40,8 @@ export function SectionPill({
 }) {
   const toneClassMap: Record<SectionPillTone, string> = {
     white: "bg-white",
-    lime: "bg-[#D4FF00]",
-    sand: "bg-[#FFF5C9]",
+    lime: "bg-[var(--color-accent)]",
+    sand: "bg-[var(--color-accent-soft)]",
   };
 
   return (
@@ -87,8 +87,8 @@ export function ActionLink({
   tone?: "primary" | "secondary" | "dark";
 }) {
   const toneClassMap = {
-    primary: "border-black bg-[#D4FF00] text-black",
-    secondary: "border-black bg-white text-black hover:bg-[#FFF5C9]",
+    primary: "border-black bg-[var(--color-accent)] text-black",
+    secondary: "border-black bg-white text-black hover:bg-[var(--color-accent-soft)]",
     dark: "border-black bg-black text-white hover:bg-zinc-900",
   };
 
@@ -129,7 +129,7 @@ export function ActionButton({
       <button
         type={type}
         className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-full border-2 border-black bg-[#D4FF00] px-6 py-3 text-sm font-medium text-black transition duration-300 ease-out sm:px-7",
+          "inline-flex items-center justify-center gap-2 rounded-full border-2 border-black bg-[var(--color-accent)] px-6 py-3 text-sm font-medium text-black transition duration-300 ease-out sm:px-7",
           fullWidth ? "w-full" : "w-full sm:w-auto",
         )}
       >
@@ -241,7 +241,7 @@ export function SketchDivider({
           d="M16 44C98 27 160 51 240 44C345 34 430 21 534 40C642 60 734 78 838 57C936 36 1018 25 1120 43C1231 63 1330 53 1424 34"
           fill="none"
           opacity="0.72"
-          stroke="#D4FF00"
+          stroke="var(--color-accent)"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="7"

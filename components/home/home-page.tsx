@@ -14,7 +14,7 @@ import { SketchDivider } from "./primitives";
 export function HomePage() {
   return (
     <main className="relative overflow-hidden bg-white text-black">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_14%_18%,rgba(212,255,0,0.16),transparent_15%),radial-gradient(circle_at_88%_10%,rgba(255,184,214,0.12),transparent_12%),radial-gradient(circle_at_78%_72%,rgba(142,217,255,0.12),transparent_16%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_14%_18%,rgb(var(--color-accent-rgb)/0.18),transparent_15%),radial-gradient(circle_at_88%_10%,rgba(255,184,214,0.12),transparent_12%),radial-gradient(circle_at_78%_72%,rgba(142,217,255,0.12),transparent_16%)]" />
 
       <SiteHeader />
       <HeroSection />

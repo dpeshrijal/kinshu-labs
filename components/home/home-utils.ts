@@ -23,7 +23,7 @@ export function getAvailabilityStyles(availability: string) {
   }
 
   if (normalized.includes("week")) {
-    return "bg-[#FFF5C9]";
+    return "bg-[var(--color-accent-soft)]";
   }
 
   return "bg-[#F1F1F1]";

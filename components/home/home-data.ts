@@ -18,7 +18,7 @@ import type {
   VettingStep,
 } from "./home-types";
 
-export const brandName = "Kinshu";
+export const brandName = "Kinshu Labs";
 
 export const featuredTalent = [
   {
@@ -27,7 +27,7 @@ export const featuredTalent = [
     summary: "RAG systems, evaluation loops, and product-ready AI features.",
     skills: [
       { label: "OpenAI", className: "bg-[#FFE1EE]" },
-      { label: "RAG", className: "bg-[#EEFF9D]" },
+      { label: "RAG", className: "bg-[var(--color-accent-muted)]" },
       { label: "LangChain", className: "bg-[#E9E1FF]" },
     ],
     experience: "7+ years",
@@ -37,7 +37,7 @@ export const featuredTalent = [
       frame: "bg-[#FFE7EF]",
       skin: "#FFD7B8",
       hair: "#1E1A1A",
-      shirt: "#D4FF00",
+      shirt: "var(--color-accent)",
     },
   },
   {
@@ -47,7 +47,7 @@ export const featuredTalent = [
     skills: [
       { label: "LangGraph", className: "bg-[#F1E6FF]" },
       { label: "Pinecone", className: "bg-[#DFF4FF]" },
-      { label: "Python", className: "bg-[#FFF5C9]" },
+      { label: "Python", className: "bg-[var(--color-accent-soft)]" },
     ],
     experience: "8+ years",
     availability: "2 weeks",
@@ -64,7 +64,7 @@ export const featuredTalent = [
     summary: "Fine-tuning, inference performance, and production ML delivery.",
     skills: [
       { label: "PyTorch", className: "bg-[#FFD8D8]" },
-      { label: "Llama 3", className: "bg-[#EEFF9D]" },
+      { label: "Llama 3", className: "bg-[var(--color-accent-muted)]" },
       { label: "HuggingFace", className: "bg-[#FFECC8]" },
     ],
     experience: "9+ years",
@@ -82,7 +82,7 @@ export const featuredTalent = [
     summary: "LLM interfaces, backend APIs, and fast product iteration.",
     skills: [
       { label: "Next.js", className: "bg-[#EFEFEF]" },
-      { label: "FastAPI", className: "bg-[#EEFF9D]" },
+      { label: "FastAPI", className: "bg-[var(--color-accent-muted)]" },
       { label: "OpenAI", className: "bg-[#FFE1EE]" },
     ],
     experience: "6+ years",
@@ -102,7 +102,7 @@ export const featuredTalent = [
       "Internal tooling, deployment pipelines, and observability for AI teams.",
     skills: [
       { label: "Kubernetes", className: "bg-[#DFF4FF]" },
-      { label: "Modal", className: "bg-[#FFF5C9]" },
+      { label: "Modal", className: "bg-[var(--color-accent-soft)]" },
       { label: "LangSmith", className: "bg-[#E9E1FF]" },
     ],
     experience: "8+ years",
@@ -120,8 +120,8 @@ export const featuredTalent = [
     summary:
       "Prompt testing, benchmarks, and feedback loops for safer releases.",
     skills: [
-      { label: "Promptfoo", className: "bg-[#FFF5C9]" },
-      { label: "Evals", className: "bg-[#EEFF9D]" },
+      { label: "Promptfoo", className: "bg-[var(--color-accent-soft)]" },
+      { label: "Evals", className: "bg-[var(--color-accent-muted)]" },
       { label: "Python", className: "bg-[#DFF4FF]" },
     ],
     experience: "5+ years",
@@ -130,7 +130,7 @@ export const featuredTalent = [
       frame: "bg-[#FFF7D9]",
       skin: "#F0C3A5",
       hair: "#30211A",
-      shirt: "#D4FF00",
+      shirt: "var(--color-accent)",
     },
   },
   {
@@ -174,7 +174,7 @@ export const featuredTalent = [
     role: "MLOps Engineer",
     summary: "Serving stacks, GPU workloads, and cost-aware production infra.",
     skills: [
-      { label: "vLLM", className: "bg-[#EEFF9D]" },
+      { label: "vLLM", className: "bg-[var(--color-accent-muted)]" },
       { label: "Docker", className: "bg-[#DFF4FF]" },
       { label: "W&B", className: "bg-[#FFE1EE]" },
     ],
@@ -192,7 +192,7 @@ export const featuredTalent = [
     role: "Applied AI Engineer",
     summary: "Customer-facing copilots, agents, and automation features.",
     skills: [
-      { label: "Agents", className: "bg-[#EEFF9D]" },
+      { label: "Agents", className: "bg-[var(--color-accent-muted)]" },
       { label: "Redis", className: "bg-[#FFD8D8]" },
       { label: "Postgres", className: "bg-[#DFF4FF]" },
     ],
@@ -212,7 +212,7 @@ export const featuredTalent = [
     summary: "Fine-tuning, inference performance, and production ML delivery.",
     skills: [
       { label: "PyTorch", className: "bg-[#FFD8D8]" },
-      { label: "Llama 3", className: "bg-[#EEFF9D]" },
+      { label: "Llama 3", className: "bg-[var(--color-accent-muted)]" },
       { label: "HuggingFace", className: "bg-[#FFECC8]" },
     ],
     experience: "9+ years",
@@ -230,7 +230,7 @@ export const featuredTalent = [
     summary: "LLM interfaces, backend APIs, and fast product iteration.",
     skills: [
       { label: "Next.js", className: "bg-[#EFEFEF]" },
-      { label: "FastAPI", className: "bg-[#EEFF9D]" },
+      { label: "FastAPI", className: "bg-[var(--color-accent-muted)]" },
       { label: "OpenAI", className: "bg-[#FFE1EE]" },
     ],
     experience: "6+ years",
@@ -297,7 +297,7 @@ export const techGroups = [
     icon: BrainCircuit,
     items: ["OpenAI", "Claude", "Gemini", "Llama 3", "Mistral"],
     description: "Production LLM APIs and open model choices.",
-    tone: "bg-[#FFF5C9]",
+    tone: "bg-[var(--color-accent-soft)]",
   },
   {
     title: "Orchestration",
@@ -318,7 +318,7 @@ export const techGroups = [
     icon: Code2,
     items: ["PyTorch", "vLLM", "Modal", "Docker", "Kubernetes"],
     description: "Reliable model serving, deployment, and cost control.",
-    tone: "bg-[#EEFF9D]",
+    tone: "bg-[var(--color-accent-muted)]",
   },
   {
     title: "Evals & Observability",

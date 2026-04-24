@@ -6,7 +6,7 @@ import { ActionLink, Reveal, SectionPill } from "../primitives";
 export function HeroSection() {
   return (
     <section className="relative bg-white">
-      <div className="pointer-events-none absolute left-5 top-24 hidden h-16 w-16 rotate-12 rounded-full border-2 border-black bg-[#FFF5C9] md:block" />
+      <div className="pointer-events-none absolute left-5 top-24 hidden h-16 w-16 rotate-12 rounded-full border-2 border-black bg-[var(--color-accent-soft)] md:block" />
       <div className="pointer-events-none absolute bottom-14 right-8 hidden h-10 w-10 -rotate-12 rounded-[14px] border-2 border-black bg-[#FFE1EE] lg:block" />
       <div className="mx-auto max-w-7xl px-5 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-14 lg:px-8 lg:pb-24 lg:pt-20">
         <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">

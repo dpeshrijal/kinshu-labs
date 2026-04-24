@@ -54,11 +54,11 @@ export function TalentCard({ talent }: { talent: TalentProfile }) {
       className="relative h-full rounded-[28px] border-2 border-black bg-white p-5 transition duration-300 ease-out sm:p-6"
     >
       <div className="flex items-start justify-center gap-4 sm:justify-between">
-        <div className="rounded-full border-2 border-black bg-[#D4FF00] px-3 py-1 text-xs font-medium">
+        <div className="rounded-full border-2 border-black bg-[var(--color-accent)] px-3 py-1 text-xs font-medium">
           Verified
         </div>
         {talent.note ? (
-          <div className="hidden rotate-1 rounded-full border-2 border-black bg-[#FFF5C9] px-3 py-1 text-xs font-medium sm:inline-flex">
+          <div className="hidden rotate-1 rounded-full border-2 border-black bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-medium sm:inline-flex">
             {talent.note}
           </div>
         ) : null}

@@ -10,20 +10,20 @@ export function HeroProcessVisual() {
         whileHover={{ scale: 1.01, y: -2, rotate: 0.2 }}
         className="relative overflow-hidden rounded-[30px] border-2 border-black bg-white p-5 transition duration-300 ease-out sm:p-6"
       >
-        <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full border-2 border-black bg-[#D4FF00]" />
+        <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full border-2 border-black bg-[var(--color-accent)]" />
         <div className="absolute right-8 top-10 h-3 w-3 rounded-full bg-[#FFB8D6]" />
         <div className="absolute right-16 top-16 h-2 w-2 rounded-full bg-[#8ED9FF]" />
 
         <div className="relative flex items-center justify-between gap-4 border-b-2 border-black pb-4">
           <div>
-            <p className="inline-flex rotate-1 rounded-full border-2 border-black bg-[#FFF5C9] px-3 py-1 text-xs font-medium uppercase text-black">
+            <p className="inline-flex rotate-1 rounded-full border-2 border-black bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-medium uppercase text-black">
               Matching process
             </p>
             <h2 className="mt-3 text-lg font-semibold leading-7 text-zinc-950">
               From request to onboarded engineer
             </h2>
           </div>
-          <div className="hidden h-12 w-12 items-center justify-center rounded-full border-2 border-black bg-[#D4FF00] text-black sm:flex">
+          <div className="hidden h-12 w-12 items-center justify-center rounded-full border-2 border-black bg-[var(--color-accent)] text-black sm:flex">
             <Workflow className="h-5 w-5" />
           </div>
         </div>
@@ -67,7 +67,7 @@ export function HeroProcessVisual() {
               key={metric.label}
               className={`rounded-[18px] border-2 border-black p-3 text-center ${
                 index === 0
-                  ? "bg-[#D4FF00]"
+                  ? "bg-[var(--color-accent)]"
                   : index === 1
                     ? "bg-[#DFF4FF]"
                     : "bg-[#FFE1EE]"

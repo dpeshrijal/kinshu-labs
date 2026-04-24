@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-accent: #d4ff00;
+    --color-accent-soft: #fff5c9;
+    --color-accent-muted: #eeff9d;
+    --color-accent-rgb: 212 255 0;
+  }
+
   * {
     @apply border-zinc-200;
   }
@@ -16,7 +23,8 @@
   }
 
   ::selection {
-    @apply bg-indigo-200 text-zinc-900;
+    background: var(--color-accent-muted);
+    color: #18181b;
   }
 }
 
@@ -29,6 +37,12 @@
   }
 
   .mask-fade {
-    mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 12%,
+      black 88%,
+      transparent
+    );
   }
 }

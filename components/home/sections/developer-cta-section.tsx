@@ -4,7 +4,7 @@ export function DeveloperCtaSection() {
   return (
     <section id="apply" className="bg-white">
       <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 sm:py-20 lg:px-8">
-        <Reveal className="rounded-[32px] border-2 border-black bg-[#FFF5C9] p-8 text-center sm:p-10">
+        <Reveal className="rounded-[32px] border-2 border-black bg-[var(--color-accent-soft)] p-8 text-center sm:p-10">
           <SectionPill tone="white" className="-rotate-1">
             For developers
           </SectionPill>

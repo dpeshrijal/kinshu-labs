@@ -65,7 +65,9 @@ export function FeaturedTalentSection() {
                   onClick={() => goToPage(index)}
                   className={cn(
                     "h-3 rounded-full border-2 border-black transition duration-300 ease-out",
-                    currentPage === index ? "w-10 bg-[#D4FF00]" : "w-3 bg-white",
+                    currentPage === index
+                      ? "w-10 bg-[var(--color-accent)]"
+                      : "w-3 bg-white",
                   )}
                 />
               ))}

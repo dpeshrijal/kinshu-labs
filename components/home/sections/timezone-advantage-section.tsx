@@ -44,7 +44,7 @@ export function TimezoneAdvantageSection() {
                 >
                   <div className="flex items-start gap-4">
                     <div className="relative flex h-14 w-14 shrink-0 items-center justify-center">
-                      <div className="absolute left-1 top-1 h-12 w-12 rounded-full bg-[#D4FF00]" />
+                      <div className="absolute left-1 top-1 h-12 w-12 rounded-full bg-[var(--color-accent)]" />
                       <div className="relative text-3xl font-semibold tracking-tight text-black">
                         {index + 1}
                       </div>

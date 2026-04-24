@@ -32,7 +32,7 @@ export function RequestMatchSection() {
                   key={item}
                   className="flex items-center gap-3 text-sm font-medium text-black"
                 >
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-black bg-[#D4FF00]">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-black bg-[var(--color-accent)]">
                     <Check className="h-4 w-4" />
                   </div>
                   {item}
