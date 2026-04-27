@@ -20,7 +20,7 @@ export function PricingLevelsSection() {
       <div className="mx-auto max-w-7xl px-5 pb-10 sm:px-6 sm:pb-12 lg:px-8">
         <Reveal className="flex flex-col items-center text-center">
           <h2 className="text-[2.7rem] font-semibold tracking-tight text-[#111111] sm:text-5xl">
-            Find the right fit for your AI needs
+            Find the right fit for your engineering needs
           </h2>
 
           {/* <p className="mt-6 max-w-[40rem] text-[1.12rem] leading-[1.7] text-[#5d6561] sm:text-[1.16rem]">

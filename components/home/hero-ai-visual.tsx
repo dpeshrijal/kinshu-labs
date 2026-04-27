@@ -1,44 +1,44 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-  Bot,
-  Boxes,
-  BrainCircuit,
-  DatabaseZap,
-  ScanSearch,
+  Code2,
+  Database,
+  LayoutPanelTop,
+  Network,
+  ServerCog,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 const capabilityLabels = [
   {
-    label: "LLM Engineering",
-    mobileLabel: "LLM Engineering",
-    icon: BrainCircuit,
+    label: "Fullstack Apps",
+    mobileLabel: "Fullstack",
+    icon: Code2,
     className: "left-5 top-5 sm:left-10 sm:top-6",
   },
   {
-    label: "AI Agents",
-    mobileLabel: "AI Agents",
-    icon: Bot,
+    label: "Frontend Systems",
+    mobileLabel: "Frontend",
+    icon: LayoutPanelTop,
     className: "right-4 top-[4.9rem] sm:right-10 sm:top-[4.6rem]",
   },
   {
-    label: "Computer Vision",
-    mobileLabel: "Computer Vision",
-    icon: ScanSearch,
+    label: "Backend APIs",
+    mobileLabel: "Backend APIs",
+    icon: Network,
     className: "left-1 top-[51%] sm:left-5 sm:top-[52%]",
   },
   {
-    label: "RAG & Vector Search",
-    mobileLabel: "RAG Search",
-    icon: Boxes,
+    label: "Data Engineering",
+    mobileLabel: "Data Eng",
+    icon: Database,
     className: "right-0 top-[69%] sm:right-3 sm:top-[66%]",
   },
   {
-    label: "MLOps & Deployment",
-    mobileLabel: "MLOps",
-    icon: DatabaseZap,
+    label: "DevOps & Cloud",
+    mobileLabel: "DevOps",
+    icon: ServerCog,
     className: "bottom-4 left-1/2 -translate-x-1/2 sm:bottom-4",
   },
 ] as const;
@@ -74,7 +74,7 @@ export function HeroAiVisual() {
           <div className="absolute left-1/2 top-1/2 h-[90%] w-[90%] max-w-[760px] -translate-x-1/2 -translate-y-1/2 sm:h-[94%] sm:w-[94%]">
             <Image
               src="/hero-globe-tight.png"
-              alt="Connected AI globe"
+              alt="Connected engineering network globe"
               fill
               priority
               className="object-contain object-center"

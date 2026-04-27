@@ -11,15 +11,15 @@ export function ForEngineersSection() {
           <Reveal className="flex flex-col items-center text-center">
             <div className="inline-flex items-center gap-3 rounded-[18px] border border-[#deeadf] bg-[#f2f7f3] px-5 py-3 text-[1.02rem] font-medium text-[#255f47]">
               <Users className="h-5 w-5" />
-              <span>For AI Engineers</span>
+              <span>For Software Developers</span>
             </div>
 
             <h2 className="mt-8 max-w-[17ch] text-[2.35rem] font-semibold leading-[1.02] tracking-tight text-[#111111] sm:text-[3.35rem] lg:text-[4rem]">
-              Join our <span className="text-[var(--color-accent)]">AI engineer</span> network.
+              Join our <span className="text-[var(--color-accent)]">software developer</span> network.
             </h2>
 
             <p className="mt-7 hidden max-w-[34rem] text-[1.22rem] leading-[1.65] text-[#59615d] sm:block lg:max-w-[46rem] lg:text-[1.3rem]">
-              We connect top AI engineers with high-impact projects from innovative startups and enterprises.
+              We connect top developers with high-impact projects from innovative startups and enterprises.
             </p>
           </Reveal>
 

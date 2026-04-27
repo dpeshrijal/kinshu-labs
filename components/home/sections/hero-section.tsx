@@ -19,17 +19,17 @@ export function HeroSection() {
               tone="lime"
               className="rounded-[13px] px-4 py-[0.7rem] text-[11px] tracking-[0.14em]"
             >
-              Vetted AI engineers. Zero hiring headache.
+              Vetted software developers. Zero hiring headache.
             </SectionPill>
             <h1 className="mt-6 max-w-[48rem] text-[3rem] font-semibold leading-[0.94] tracking-tight text-[#101111] sm:text-[4.55rem] lg:text-[4.65rem]">
-              Hire elite AI engineers.
+              Hire elite software developers.
               <span className="mt-1 block text-[var(--color-accent)]">
                 Build what&apos;s next.
               </span>
             </h1>
             <p className="mt-6 max-w-[38rem] text-[1.14rem] leading-[1.85] text-[#38403c]">
-              We help startups and enterprises hire top 1% AI engineers from
-              Nepal. Fast, reliable, and risk-free.
+              We help startups and enterprises hire top software developers
+              from Nepal. Fast, reliable, and risk-free.
             </p>
 
             <div className="mt-8 flex flex-col gap-3 text-[0.92rem] text-[#2f3734] sm:flex-row sm:flex-wrap sm:items-center sm:gap-8">
@@ -47,7 +47,7 @@ export function HeroSection() {
                 tone="primary"
                 className="min-h-[3.75rem] rounded-[12px] px-8 text-[1rem] font-semibold"
               >
-                Hire AI Engineer
+                Hire Software Developers
                 <ArrowRight className="h-4 w-4" />
               </ActionLink>
               <ActionLink

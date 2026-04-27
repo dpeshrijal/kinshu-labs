@@ -32,16 +32,16 @@ export const brandName = "Kinshu Labs";
 export const featuredTalent = [
   {
     name: "Arjun B.",
-    role: "Senior LLM Engineer",
-    subtitle: "5+ years building LLM apps and AI agents.",
+    role: "Fullstack Engineer",
+    subtitle: "5+ years building product features and scalable backend systems.",
     skills: [
-      { label: "Python" },
-      { label: "LangChain" },
-      { label: "RAG" },
-      { label: "GPT" },
+      { label: "TypeScript" },
+      { label: "React" },
+      { label: "Node.js" },
+      { label: "PostgreSQL" },
     ],
     highlights: [
-      "5+ years building LLM apps and AI agents",
+      "5+ years building web platforms and backend systems",
       "Ex-BigTech",
       "MS in CS",
     ],
@@ -51,15 +51,16 @@ export const featuredTalent = [
   },
   {
     name: "Saurav K.",
-    role: "Machine Learning Engineer",
-    subtitle: "4+ years in deep learning and model deployment.",
+    role: "Data Engineer",
+    subtitle: "4+ years building pipelines, warehouses, and cloud data systems.",
     skills: [
-      { label: "PyTorch" },
-      { label: "Transformers" },
-      { label: "MLOps" },
+      { label: "Python" },
+      { label: "Airflow" },
+      { label: "PySpark" },
+      { label: "Databricks" },
     ],
     highlights: [
-      "4+ years in deep learning and model deployment",
+      "4+ years building data pipelines and analytics platforms",
       "Ex-Research Lab",
       "MS in AI",
     ],
@@ -69,11 +70,16 @@ export const featuredTalent = [
   },
   {
     name: "Pragya M.",
-    role: "Computer Vision Engineer",
-    subtitle: "4+ years in computer vision and image processing.",
-    skills: [{ label: "Python" }, { label: "OpenCV" }, { label: "YOLO" }],
+    role: "Frontend Engineer",
+    subtitle: "4+ years building responsive product interfaces and design systems.",
+    skills: [
+      { label: "TypeScript" },
+      { label: "Next.js" },
+      { label: "React" },
+      { label: "Tailwind" },
+    ],
     highlights: [
-      "4+ years in computer vision and image processing",
+      "4+ years building frontend systems for production products",
       "Ex-Product Company",
       "MS in CS",
     ],
@@ -88,7 +94,7 @@ export const vettingSteps = [
     number: "01",
     title: "Share your needs",
     description:
-      "Tell us about your project and the kind of AI engineer you need.",
+      "Tell us about your project and the kind of developer you need.",
     icon: MessageSquareText,
   },
   {
@@ -116,52 +122,52 @@ export const vettingSteps = [
 
 export const techGroups = [
   {
-    title: "LLM Applications",
+    title: "Fullstack Apps",
     icon: Bot,
-    items: ["Chatbots, copilots,", "and AI SaaS platforms"],
-    description: "LLM Applications",
+    items: ["Web apps, internal tools,", "and SaaS products"],
+    description: "Fullstack Apps",
     tone: "bg-[#f3f7f4]",
   },
   {
-    title: "AI Agents",
+    title: "AI & Automation",
     icon: Sparkles,
-    items: ["Autonomous agents", "for complex tasks"],
-    description: "AI Agents",
+    items: ["Copilots, workflows,", "and intelligent automation"],
+    description: "AI & Automation",
     tone: "bg-[#f3f7f4]",
   },
   {
-    title: "RAG Systems",
+    title: "Backend Systems",
     icon: FileSearch2,
-    items: ["Enterprise search", "and knowledge bases"],
-    description: "RAG Systems",
+    items: ["APIs, business logic,", "and platform services"],
+    description: "Backend Systems",
     tone: "bg-[#f3f7f4]",
   },
   {
-    title: "Computer Vision",
+    title: "Frontend Engineering",
     icon: Eye,
-    items: ["Image, video analysis", "and automation"],
-    description: "Computer Vision",
+    items: ["Responsive interfaces", "and design systems"],
+    description: "Frontend Engineering",
     tone: "bg-[#f3f7f4]",
   },
   {
-    title: "AI Data Pipelines",
+    title: "Data Engineering",
     icon: Database,
-    items: ["Data processing", "and model pipelines"],
-    description: "AI & Data Pipelines",
+    items: ["Pipelines, warehouses,", "and analytics platforms"],
+    description: "Data Engineering",
     tone: "bg-[#f3f7f4]",
   },
   {
-    title: "MLOps",
+    title: "DevOps & Cloud",
     icon: Globe2,
-    items: ["Deployment, monitoring", "and optimization"],
-    description: "MLOps",
+    items: ["Infrastructure, deployment,", "and observability"],
+    description: "DevOps & Cloud",
     tone: "bg-[#f3f7f4]",
   },
 ] satisfies readonly TechGroup[];
 
 export const footerLinks = [
   { href: "#how-it-works", label: "How It Works" },
-  { href: "#ai-engineers", label: "AI Engineers" },
+  { href: "#developers", label: "Software Developers" },
   { href: "#solutions", label: "Solutions" },
   { href: "#pricing", label: "Pricing" },
   { href: "#about", label: "About Us" },
@@ -170,7 +176,7 @@ export const footerLinks = [
 
 export const navLinks = [
   { href: "#how-it-works", label: "How It Works" },
-  { href: "#ai-engineers", label: "AI Engineers" },
+  { href: "#developers", label: "Software Developers" },
   { href: "#solutions", label: "Solutions" },
   { href: "#pricing", label: "Pricing" },
   { href: "#about", label: "About Us" },
@@ -180,7 +186,7 @@ export const navLinks = [
 export const testimonials = [
   {
     quote:
-      "Kinshu Labs helped us hire an exceptional AI engineer in less than a week. The quality of talent and communication is top-notch.",
+      "Kinshu Labs helped us hire an exceptional developer in less than a week. The quality of talent and communication is top-notch.",
     name: "Jason M.",
     role: "CTO",
     company: "SupraAgents AI",
@@ -190,7 +196,7 @@ export const testimonials = [
 ] satisfies readonly Testimonial[];
 
 export const stats = [
-  { value: "50+", label: "AI Engineers" },
+  { value: "50+", label: "Engineers" },
   { value: "20+", label: "Clients Worldwide" },
   { value: "100+", label: "Projects Delivered" },
   { value: "98%", label: "Client Satisfaction" },
@@ -226,7 +232,7 @@ export const pricingTiers = [
 
 export const engineerNetworkBenefits = [
   {
-    title: "Work on impactful AI projects",
+    title: "Work on impactful products",
     icon: Rocket,
   },
   {
@@ -238,7 +244,7 @@ export const engineerNetworkBenefits = [
     icon: Clock3,
   },
   {
-    title: "Vetted and trusted by top companies",
+    title: "Vetted and trusted by top teams",
     icon: ShieldCheck,
   },
 ] satisfies readonly EngineerNetworkBenefit[];
@@ -250,7 +256,7 @@ export const footerColumns = [
   },
   {
     title: "Services",
-    links: ["AI Engineers", "Solutions", "Hiring Process", "Pricing"],
+    links: ["Software Developers", "Solutions", "Hiring Process", "Pricing"],
   },
   {
     title: "Resources",

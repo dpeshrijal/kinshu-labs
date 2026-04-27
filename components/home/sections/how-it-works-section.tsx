@@ -11,7 +11,7 @@ export function HowItWorksSection() {
         <Reveal>
           <div className="text-center">
             <h2 className="text-[2.7rem] font-semibold tracking-tight text-[#111111] sm:text-5xl">
-              A better way to hire AI talent
+              A better way to hire software developers
             </h2>
             <p className="mt-3 text-[1.02rem] text-[#606864]">
               We handle the heavy lifting so you can focus on building.

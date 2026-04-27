@@ -10,7 +10,7 @@ export function SolutionsSection() {
         Solutions we build
       </h2>
       <p className="mt-2 text-[0.98rem] text-[#5c6460]">
-        End-to-end AI development tailored to your business.
+        End-to-end Software development tailored to your business.
       </p>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">

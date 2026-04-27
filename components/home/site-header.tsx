@@ -33,7 +33,8 @@ export function SiteHeader() {
           href="/hire"
           className="inline-flex min-h-[2.75rem] shrink-0 items-center justify-center whitespace-nowrap rounded-[14px] bg-[#181b1a] px-3 text-[0.82rem] font-semibold text-white transition hover:bg-[#101312] sm:min-h-[3rem] sm:px-6 sm:text-sm"
         >
-          Hire AI Engineer
+          <span className="sm:hidden">Hire Software</span>
+          <span className="hidden sm:inline">Hire Software Developers</span>
         </Link>
       </div>
     </header>

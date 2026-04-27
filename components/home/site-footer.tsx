@@ -16,7 +16,7 @@ export function SiteFooter() {
               </div>
             </div>
             <p className="mt-6 max-w-xs text-sm leading-7 text-white/70">
-              We connect global companies with exceptional AI talent from Nepal.
+              We connect global companies with exceptional software developer talent from Nepal.
             </p>
           </div>
 
@@ -36,7 +36,7 @@ export function SiteFooter() {
               Let&apos;s build something great
             </h3>
             <p className="mt-4 max-w-xs text-sm leading-7 text-white/70">
-              Get in touch and hire your next AI engineer today.
+              Get in touch and hire your next software developer today.
             </p>
             <Link
               href="/hire"
