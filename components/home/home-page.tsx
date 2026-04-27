@@ -3,6 +3,7 @@
 import { SiteFooter } from "./site-footer";
 import { SiteHeader } from "./site-header";
 import { EngineersShowcaseSection } from "./sections/engineers-showcase-section";
+import { ForEngineersSection } from "./sections/for-engineers-section";
 import { HeroSection } from "./sections/hero-section";
 import { HowItWorksSection } from "./sections/how-it-works-section";
 import { PricingLevelsSection } from "./sections/pricing-levels-section";
@@ -31,6 +32,7 @@ export function HomePage() {
 
       <PricingLevelsSection />
       <StatsSection />
+      <ForEngineersSection />
       <SiteFooter />
     </main>
   );

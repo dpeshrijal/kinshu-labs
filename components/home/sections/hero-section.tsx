@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle2, PhoneCall } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 import { HeroAiVisual } from "../hero-ai-visual";
 import { ActionLink, Reveal, SectionPill } from "../primitives";
@@ -51,12 +51,12 @@ export function HeroSection() {
                 <ArrowRight className="h-4 w-4" />
               </ActionLink>
               <ActionLink
-                href="/hire"
+                href="/join"
                 tone="secondary"
                 className="min-h-[3.75rem] rounded-[12px] px-8 text-[1rem] font-semibold"
               >
-                Book a Call
-                <PhoneCall className="h-4 w-4" />
+                Join the talent pool
+                <ArrowRight className="h-4 w-4" />
               </ActionLink>
             </div>
           </Reveal>

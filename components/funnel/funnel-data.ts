@@ -36,6 +36,7 @@ export const roleOptions: readonly RoleOption[] = [
   { id: "fullstack-engineer", label: "Fullstack Engineer", icon: Code2 },
   { id: "frontend-engineer", label: "Frontend Engineer", icon: LayoutPanelTop },
   { id: "backend-engineer", label: "Backend Engineer", icon: Database },
+  { id: "data-engineer", label: "Data Engineer", icon: Database },
   { id: "devops-engineer", label: "DevOps Engineer", icon: Cloud },
 ] as const;
 

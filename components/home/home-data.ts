@@ -1,6 +1,8 @@
 import {
   Bot,
   BrainCircuit,
+  CircleDollarSign,
+  Clock3,
   Database,
   Eye,
   FileSearch2,
@@ -8,10 +10,12 @@ import {
   MessageSquareText,
   Rocket,
   ScanSearch,
+  ShieldCheck,
   Sparkles,
 } from "lucide-react";
 
 import type {
+  EngineerNetworkBenefit,
   FooterColumn,
   FooterLink,
   NavLink,
@@ -219,6 +223,25 @@ export const pricingTiers = [
     summary: "Best for complex projects and technical leadership.",
   },
 ] satisfies readonly PricingTier[];
+
+export const engineerNetworkBenefits = [
+  {
+    title: "Work on impactful AI projects",
+    icon: Rocket,
+  },
+  {
+    title: "Competitive compensation",
+    icon: CircleDollarSign,
+  },
+  {
+    title: "Flexible engagement",
+    icon: Clock3,
+  },
+  {
+    title: "Vetted and trusted by top companies",
+    icon: ShieldCheck,
+  },
+] satisfies readonly EngineerNetworkBenefit[];
 
 export const footerColumns = [
   {

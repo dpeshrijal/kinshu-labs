@@ -90,3 +90,8 @@ export interface PricingTier {
   summary: string;
   featured?: boolean;
 }
+
+export interface EngineerNetworkBenefit {
+  title: string;
+  icon: LucideIcon;
+}

@@ -172,9 +172,9 @@ function FooterActions({
 
 export function HireFunnelPage() {
   const [step, setStep] = useState<FunnelStep>(1);
-  const [selectedRoles, setSelectedRoles] = useState<string[]>(["ai-engineer"]);
-  const [selectedExperience, setSelectedExperience] = useState<string>("junior");
-  const [selectedStart, setSelectedStart] = useState<string>("asap");
+  const [selectedRoles, setSelectedRoles] = useState<string[]>([]);
+  const [selectedExperience, setSelectedExperience] = useState<string>("");
+  const [selectedStart, setSelectedStart] = useState<string>("");
   const [contact, setContact] = useState<ContactFields>({
     name: "",
     email: "",
@@ -319,7 +319,13 @@ export function HireFunnelPage() {
               <button
                 type="button"
                 onClick={() => setStep(3)}
-                className="inline-flex min-h-[3.75rem] items-center justify-center gap-3 rounded-[12px] bg-[var(--color-accent)] px-8 text-[1.05rem] font-medium text-white shadow-[0_14px_32px_rgba(31,79,60,0.22)] transition hover:bg-[#173f31]"
+                disabled={!selectedExperience}
+                className={cn(
+                  "inline-flex min-h-[3.75rem] items-center justify-center gap-3 rounded-[12px] px-8 text-[1.05rem] font-medium transition",
+                  selectedExperience
+                    ? "bg-[var(--color-accent)] text-white shadow-[0_14px_32px_rgba(31,79,60,0.22)] hover:bg-[#173f31]"
+                    : "cursor-not-allowed bg-[#d8e1dc] text-white",
+                )}
               >
                 Continue
                 <ArrowRight className="h-4 w-4" />
