@@ -1,19 +1,24 @@
 import {
+  Bot,
   BrainCircuit,
-  Check,
-  Code2,
+  Database,
+  Eye,
+  FileSearch2,
   Globe2,
   MessageSquareText,
+  Rocket,
+  ScanSearch,
   Sparkles,
-  Workflow,
 } from "lucide-react";
 
 import type {
+  FooterColumn,
   FooterLink,
-  HeroMetric,
-  HeroProcessStep,
-  OvernightFlowStep,
+  NavLink,
+  PricingTier,
+  StatItem,
   TalentProfile,
+  Testimonial,
   TechGroup,
   VettingStep,
 } from "./home-types";
@@ -22,347 +27,210 @@ export const brandName = "Kinshu Labs";
 
 export const featuredTalent = [
   {
-    name: "Maya Gurung",
+    name: "Arjun B.",
     role: "Senior LLM Engineer",
-    summary: "RAG systems, evaluation loops, and product-ready AI features.",
+    subtitle: "5+ years building LLM apps and AI agents.",
     skills: [
-      { label: "OpenAI", className: "bg-[#FFE1EE]" },
-      { label: "RAG", className: "bg-[var(--color-accent-muted)]" },
-      { label: "LangChain", className: "bg-[#E9E1FF]" },
+      { label: "Python" },
+      { label: "LangChain" },
+      { label: "RAG" },
+      { label: "GPT" },
     ],
-    experience: "7+ years",
-    availability: "Available now",
-    note: "Most requested",
-    avatar: {
-      frame: "bg-[#FFE7EF]",
-      skin: "#FFD7B8",
-      hair: "#1E1A1A",
-      shirt: "var(--color-accent)",
-    },
+    highlights: [
+      "5+ years building LLM apps and AI agents",
+      "Ex-BigTech",
+      "MS in CS",
+    ],
+    availability: "Available",
+    photoUrl: "/candidates/arjun-b.png",
+    placeholderLabel: "AB",
   },
   {
-    name: "Aarav Shrestha",
-    role: "Agentic Systems Architect",
-    summary: "Tool-using workflows, orchestration, and clean system design.",
+    name: "Saurav K.",
+    role: "Machine Learning Engineer",
+    subtitle: "4+ years in deep learning and model deployment.",
     skills: [
-      { label: "LangGraph", className: "bg-[#F1E6FF]" },
-      { label: "Pinecone", className: "bg-[#DFF4FF]" },
-      { label: "Python", className: "bg-[var(--color-accent-soft)]" },
+      { label: "PyTorch" },
+      { label: "Transformers" },
+      { label: "MLOps" },
     ],
-    experience: "8+ years",
-    availability: "2 weeks",
-    avatar: {
-      frame: "bg-[#E6F6FF]",
-      skin: "#EBC1A5",
-      hair: "#37251B",
-      shirt: "#8ED9FF",
-    },
+    highlights: [
+      "4+ years in deep learning and model deployment",
+      "Ex-Research Lab",
+      "MS in AI",
+    ],
+    availability: "Available",
+    photoUrl: "/candidates/saurav-k.png",
+    placeholderLabel: "SK",
   },
   {
-    name: "Niraj Karki",
-    role: "Applied ML Engineer",
-    summary: "Fine-tuning, inference performance, and production ML delivery.",
-    skills: [
-      { label: "PyTorch", className: "bg-[#FFD8D8]" },
-      { label: "Llama 3", className: "bg-[var(--color-accent-muted)]" },
-      { label: "HuggingFace", className: "bg-[#FFECC8]" },
+    name: "Pragya M.",
+    role: "Computer Vision Engineer",
+    subtitle: "4+ years in computer vision and image processing.",
+    skills: [{ label: "Python" }, { label: "OpenCV" }, { label: "YOLO" }],
+    highlights: [
+      "4+ years in computer vision and image processing",
+      "Ex-Product Company",
+      "MS in CS",
     ],
-    experience: "9+ years",
-    availability: "This week",
-    avatar: {
-      frame: "bg-[#FFF1E7]",
-      skin: "#C98C62",
-      hair: "#21130E",
-      shirt: "#FFD56B",
-    },
-  },
-  {
-    name: "Anisha Thapa",
-    role: "Full-Stack AI Engineer",
-    summary: "LLM interfaces, backend APIs, and fast product iteration.",
-    skills: [
-      { label: "Next.js", className: "bg-[#EFEFEF]" },
-      { label: "FastAPI", className: "bg-[var(--color-accent-muted)]" },
-      { label: "OpenAI", className: "bg-[#FFE1EE]" },
-    ],
-    experience: "6+ years",
-    availability: "Available now",
-    note: "Product-minded",
-    avatar: {
-      frame: "bg-[#FFF0F8]",
-      skin: "#F2C7AB",
-      hair: "#2A1B1A",
-      shirt: "#FFB8D6",
-    },
-  },
-  {
-    name: "Prabin Rai",
-    role: "AI Platform Engineer",
-    summary:
-      "Internal tooling, deployment pipelines, and observability for AI teams.",
-    skills: [
-      { label: "Kubernetes", className: "bg-[#DFF4FF]" },
-      { label: "Modal", className: "bg-[var(--color-accent-soft)]" },
-      { label: "LangSmith", className: "bg-[#E9E1FF]" },
-    ],
-    experience: "8+ years",
-    availability: "3 weeks",
-    avatar: {
-      frame: "bg-[#EEF7FF]",
-      skin: "#D8A481",
-      hair: "#1E1E1E",
-      shirt: "#9DD3FF",
-    },
-  },
-  {
-    name: "Sanjana KC",
-    role: "Evaluation Engineer",
-    summary:
-      "Prompt testing, benchmarks, and feedback loops for safer releases.",
-    skills: [
-      { label: "Promptfoo", className: "bg-[var(--color-accent-soft)]" },
-      { label: "Evals", className: "bg-[var(--color-accent-muted)]" },
-      { label: "Python", className: "bg-[#DFF4FF]" },
-    ],
-    experience: "5+ years",
-    availability: "Available now",
-    avatar: {
-      frame: "bg-[#FFF7D9]",
-      skin: "#F0C3A5",
-      hair: "#30211A",
-      shirt: "var(--color-accent)",
-    },
-  },
-  {
-    name: "Kiran Bista",
-    role: "Retrieval Engineer",
-    summary: "Chunking, indexing, and search quality across knowledge systems.",
-    skills: [
-      { label: "Qdrant", className: "bg-[#E9E1FF]" },
-      { label: "pgvector", className: "bg-[#DFF4FF]" },
-      { label: "LlamaIndex", className: "bg-[#FFECC8]" },
-    ],
-    experience: "7+ years",
-    availability: "2 weeks",
-    avatar: {
-      frame: "bg-[#F2F7FF]",
-      skin: "#D9A27A",
-      hair: "#2C201C",
-      shirt: "#A9CFFF",
-    },
-  },
-  {
-    name: "Roshan Poudel",
-    role: "Multimodal Engineer",
-    summary: "Speech, image, and text workflows for AI-native products.",
-    skills: [
-      { label: "Whisper", className: "bg-[#FFECC8]" },
-      { label: "PyTorch", className: "bg-[#FFD8D8]" },
-      { label: "OpenCV", className: "bg-[#DFF4FF]" },
-    ],
-    experience: "6+ years",
-    availability: "This month",
-    avatar: {
-      frame: "bg-[#FFF3EA]",
-      skin: "#BF855F",
-      hair: "#241915",
-      shirt: "#FFD56B",
-    },
-  },
-  {
-    name: "Sofia Lama",
-    role: "MLOps Engineer",
-    summary: "Serving stacks, GPU workloads, and cost-aware production infra.",
-    skills: [
-      { label: "vLLM", className: "bg-[var(--color-accent-muted)]" },
-      { label: "Docker", className: "bg-[#DFF4FF]" },
-      { label: "W&B", className: "bg-[#FFE1EE]" },
-    ],
-    experience: "8+ years",
-    availability: "4 weeks",
-    avatar: {
-      frame: "bg-[#FFF0F7]",
-      skin: "#E1B79A",
-      hair: "#1B1B1B",
-      shirt: "#FFB8D6",
-    },
-  },
-  {
-    name: "Ritesh Adhikari",
-    role: "Applied AI Engineer",
-    summary: "Customer-facing copilots, agents, and automation features.",
-    skills: [
-      { label: "Agents", className: "bg-[var(--color-accent-muted)]" },
-      { label: "Redis", className: "bg-[#FFD8D8]" },
-      { label: "Postgres", className: "bg-[#DFF4FF]" },
-    ],
-    experience: "7+ years",
-    availability: "Available now",
-    note: "Fast starter",
-    avatar: {
-      frame: "bg-[#F5F7FF]",
-      skin: "#D39C76",
-      hair: "#221714",
-      shirt: "#B8CEFF",
-    },
-  },
-  {
-    name: "Niraj Karki",
-    role: "Applied ML Engineer",
-    summary: "Fine-tuning, inference performance, and production ML delivery.",
-    skills: [
-      { label: "PyTorch", className: "bg-[#FFD8D8]" },
-      { label: "Llama 3", className: "bg-[var(--color-accent-muted)]" },
-      { label: "HuggingFace", className: "bg-[#FFECC8]" },
-    ],
-    experience: "9+ years",
-    availability: "This week",
-    avatar: {
-      frame: "bg-[#FFF1E7]",
-      skin: "#C98C62",
-      hair: "#21130E",
-      shirt: "#FFD56B",
-    },
-  },
-  {
-    name: "Anisha Thapa",
-    role: "Full-Stack AI Engineer",
-    summary: "LLM interfaces, backend APIs, and fast product iteration.",
-    skills: [
-      { label: "Next.js", className: "bg-[#EFEFEF]" },
-      { label: "FastAPI", className: "bg-[var(--color-accent-muted)]" },
-      { label: "OpenAI", className: "bg-[#FFE1EE]" },
-    ],
-    experience: "6+ years",
-    availability: "Available now",
-    note: "Product-minded",
-    avatar: {
-      frame: "bg-[#FFF0F8]",
-      skin: "#F2C7AB",
-      hair: "#2A1B1A",
-      shirt: "#FFB8D6",
-    },
+    availability: "Available",
+    photoUrl: "/candidates/pragya-m.png",
+    placeholderLabel: "PM",
   },
 ] satisfies readonly TalentProfile[];
 
 export const vettingSteps = [
   {
     number: "01",
-    title: "Technical screening",
-    description: "Python, systems thinking, and core problem solving.",
-    icon: Code2,
+    title: "Share your needs",
+    description:
+      "Tell us about your project and the kind of AI engineer you need.",
+    icon: MessageSquareText,
   },
   {
     number: "02",
-    title: "Architecture deep dive",
-    description: "RAG, evals, infrastructure, and real model tradeoffs.",
-    icon: BrainCircuit,
+    title: "We find and vet",
+    description:
+      "We source and rigorously vet top engineers for technical skills and communication.",
+    icon: ScanSearch,
   },
   {
     number: "03",
-    title: "Live coding",
-    description: "Hands-on implementation under real constraints.",
-    icon: Workflow,
+    title: "You interview",
+    description:
+      "Meet pre-vetted engineers and choose the right fit for your team.",
+    icon: BrainCircuit,
   },
   {
     number: "04",
-    title: "Communication check",
-    description: "Clear thinking, ownership, and team readiness.",
-    icon: MessageSquareText,
+    title: "Start building",
+    description:
+      "Engineer joins your team and helps you ship faster with continuous support.",
+    icon: Rocket,
   },
 ] satisfies readonly VettingStep[];
 
-export const overnightFlow = [
-  {
-    label: "US evening",
-    title: "You hand off priorities",
-    description: "Your team signs off with context, tasks, and blockers.",
-  },
-  {
-    label: "Nepal daytime",
-    title: "Execution keeps moving",
-    description:
-      "Your engineer continues shipping while the US team is offline.",
-  },
-  {
-    label: "US morning",
-    title: "You wake up to progress",
-    description: "Updates land before the next workday starts.",
-  },
-] satisfies readonly OvernightFlowStep[];
-
 export const techGroups = [
   {
-    title: "Models & APIs",
-    icon: BrainCircuit,
-    items: ["OpenAI", "Claude", "Gemini", "Llama 3", "Mistral"],
-    description: "Production LLM APIs and open model choices.",
-    tone: "bg-[var(--color-accent-soft)]",
+    title: "LLM Applications",
+    icon: Bot,
+    items: ["Chatbots, copilots,", "and AI SaaS platforms"],
+    description: "LLM Applications",
+    tone: "bg-[#f3f7f4]",
   },
   {
-    title: "Orchestration",
-    icon: Workflow,
-    items: ["LangChain", "LangGraph", "LlamaIndex", "DSPy", "CrewAI"],
-    description: "Agentic workflows, tool use, and reusable AI pipelines.",
-    tone: "bg-[#E9E1FF]",
-  },
-  {
-    title: "Retrieval & Search",
-    icon: Globe2,
-    items: ["Pinecone", "Weaviate", "Qdrant", "pgvector", "Elasticsearch"],
-    description: "Search quality, indexing, chunking, and knowledge systems.",
-    tone: "bg-[#DFF4FF]",
-  },
-  {
-    title: "Infra & Serving",
-    icon: Code2,
-    items: ["PyTorch", "vLLM", "Modal", "Docker", "Kubernetes"],
-    description: "Reliable model serving, deployment, and cost control.",
-    tone: "bg-[var(--color-accent-muted)]",
-  },
-  {
-    title: "Evals & Observability",
+    title: "AI Agents",
     icon: Sparkles,
-    items: ["LangSmith", "Promptfoo", "Weights & Biases", "Helicone", "Arize"],
-    description: "Testing, monitoring, and release confidence for AI features.",
-    tone: "bg-[#FFE1EE]",
+    items: ["Autonomous agents", "for complex tasks"],
+    description: "AI Agents",
+    tone: "bg-[#f3f7f4]",
+  },
+  {
+    title: "RAG Systems",
+    icon: FileSearch2,
+    items: ["Enterprise search", "and knowledge bases"],
+    description: "RAG Systems",
+    tone: "bg-[#f3f7f4]",
+  },
+  {
+    title: "Computer Vision",
+    icon: Eye,
+    items: ["Image, video analysis", "and automation"],
+    description: "Computer Vision",
+    tone: "bg-[#f3f7f4]",
+  },
+  {
+    title: "AI Data Pipelines",
+    icon: Database,
+    items: ["Data processing", "and model pipelines"],
+    description: "AI & Data Pipelines",
+    tone: "bg-[#f3f7f4]",
+  },
+  {
+    title: "MLOps",
+    icon: Globe2,
+    items: ["Deployment, monitoring", "and optimization"],
+    description: "MLOps",
+    tone: "bg-[#f3f7f4]",
   },
 ] satisfies readonly TechGroup[];
 
-export const heroProcessSteps = [
-  {
-    label: "Brief",
-    description: "Share the kind of engineer you need.",
-    icon: MessageSquareText,
-  },
-  {
-    label: "Match",
-    description:
-      "We shortlist vetted engineers with the right technical depth and working style.",
-    icon: BrainCircuit,
-  },
-  {
-    label: "Start",
-    description: "Interview, onboard, and begin shipping in days.",
-    icon: Check,
-  },
-] satisfies readonly HeroProcessStep[];
-
-export const heroMetrics = [
-  { value: "24-48h", label: "shortlist" },
-  { value: "Rigorous", label: "technical vetting" },
-  { value: "Client-ready", label: "communication" },
-] satisfies readonly HeroMetric[];
-
-export const requestMatchBenefits = [
-  "Top 1% AI Specialists",
-  "Rigorous Technical Audit",
-  "Product-Minded Partners",
-] as const;
-
 export const footerLinks = [
-  { href: "#featured-talent", label: "Talent" },
-  { href: "#process", label: "Vetting" },
-  { href: "#match", label: "Match" },
-  { href: "#apply", label: "Apply" },
+  { href: "#how-it-works", label: "How It Works" },
+  { href: "#ai-engineers", label: "AI Engineers" },
+  { href: "#solutions", label: "Solutions" },
+  { href: "#pricing", label: "Pricing" },
+  { href: "#about", label: "About Us" },
+  { href: "#footer", label: "Resources" },
 ] satisfies readonly FooterLink[];
+
+export const navLinks = [
+  { href: "#how-it-works", label: "How It Works" },
+  { href: "#ai-engineers", label: "AI Engineers" },
+  { href: "#solutions", label: "Solutions" },
+  { href: "#pricing", label: "Pricing" },
+  { href: "#about", label: "About Us" },
+  { href: "#footer", label: "Resources", hasCaret: true },
+] satisfies readonly NavLink[];
+
+export const testimonials = [
+  {
+    quote:
+      "Kinshu Labs helped us hire an exceptional AI engineer in less than a week. The quality of talent and communication is top-notch.",
+    name: "Jason M.",
+    role: "CTO",
+    company: "SupraAgents AI",
+    photoUrl: undefined,
+    placeholderLabel: "JM",
+  },
+] satisfies readonly Testimonial[];
+
+export const stats = [
+  { value: "50+", label: "AI Engineers" },
+  { value: "20+", label: "Clients Worldwide" },
+  { value: "100+", label: "Projects Delivered" },
+  { value: "98%", label: "Client Satisfaction" },
+] satisfies readonly StatItem[];
+
+export const pricingTiers = [
+  {
+    title: "Junior Engineer",
+    hourlyRate: "$7.95/hr",
+    monthlyRate: "($1272/mo)",
+    vettingHours: "Vetted engineers",
+    applicantPool: "Top 10% talent",
+    summary: "Great for small tasks and early-stage projects.",
+  },
+  {
+    title: "Mid-Level Engineer",
+    hourlyRate: "$12.95/hr",
+    monthlyRate: "($2072/mo)",
+    vettingHours: "Vetted engineers",
+    applicantPool: "Top 5% talent",
+    summary: "Ideal for most projects and growing teams.",
+    featured: true,
+  },
+  {
+    title: "Senior Engineer",
+    hourlyRate: "$19.95/hr",
+    monthlyRate: "($3192/mo)",
+    vettingHours: "Vetted engineers",
+    applicantPool: "Top 3% talent",
+    summary: "Best for complex projects and technical leadership.",
+  },
+] satisfies readonly PricingTier[];
+
+export const footerColumns = [
+  {
+    title: "Company",
+    links: ["About Us", "Careers", "Blog", "Contact"],
+  },
+  {
+    title: "Services",
+    links: ["AI Engineers", "Solutions", "Hiring Process", "Pricing"],
+  },
+  {
+    title: "Resources",
+    links: ["Case Studies", "Guides", "FAQ", "Docs"],
+  },
+] satisfies readonly FooterColumn[];

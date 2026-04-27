@@ -1,117 +1,87 @@
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { CalendarDays, Clock3 } from "lucide-react";
+import { ArrowRight, Plus } from "lucide-react";
 
-import type { TalentAvatarPalette, TalentProfile } from "./home-types";
-import { anonymizeName, getAvailabilityStyles } from "./home-utils";
+import type { TalentProfile } from "./home-types";
 
-function Avatar({ skin, hair, shirt, frame }: TalentAvatarPalette) {
+function PlaceholderPortrait() {
   return (
-    <div
-      className={`relative h-24 w-24 overflow-hidden rounded-[28px] border-2 border-black ${frame}`}
-    >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(255,255,255,0.7),transparent_35%)]" />
-      <div
-        className="absolute left-1/2 top-5 h-14 w-14 -translate-x-1/2 rounded-full border-2 border-black"
-        style={{ backgroundColor: skin }}
-      />
-      <div
-        className="absolute left-[14px] top-[34px] h-3.5 w-3.5 rounded-full border-2 border-black"
-        style={{ backgroundColor: skin }}
-      />
-      <div
-        className="absolute right-[14px] top-[34px] h-3.5 w-3.5 rounded-full border-2 border-black"
-        style={{ backgroundColor: skin }}
-      />
-      <div
-        className="absolute left-1/2 top-2.5 h-12 w-[3.9rem] -translate-x-1/2 rounded-[999px_999px_18px_18px] border-2 border-black"
-        style={{ backgroundColor: hair }}
-      />
-      <div className="absolute left-[33px] top-[42px] h-1.5 w-1.5 rounded-full bg-black" />
-      <div className="absolute right-[33px] top-[42px] h-1.5 w-1.5 rounded-full bg-black" />
-      <div className="absolute left-[26px] top-[36px] h-1 w-3 rounded-full bg-black" />
-      <div className="absolute right-[26px] top-[36px] h-1 w-3 rounded-full bg-black" />
-      <div className="absolute left-[29px] top-[50px] h-2.5 w-2.5 rounded-full bg-[#FFB6B6]/60" />
-      <div className="absolute right-[29px] top-[50px] h-2.5 w-2.5 rounded-full bg-[#FFB6B6]/60" />
-      <div className="absolute left-1/2 top-[56px] h-[7px] w-5 -translate-x-1/2 rounded-b-full border-b-2 border-black" />
-      <div
-        className="absolute left-1/2 top-[62px] h-5 w-5 -translate-x-1/2 rounded-full border-2 border-black"
-        style={{ backgroundColor: skin }}
-      />
-      <div
-        className="absolute inset-x-3 bottom-0 h-10 rounded-t-[20px] border-2 border-black"
-        style={{ backgroundColor: shirt }}
-      />
-    </div>
+    <div className="h-full w-full bg-[linear-gradient(180deg,#d9d6cf_0%,#cfcbc4_100%)]" />
   );
 }
 
 export function TalentCard({ talent }: { talent: TalentProfile }) {
-  const displayName = anonymizeName(talent.name);
+  const primaryHighlight = talent.highlights[0];
+  const secondaryHighlights = talent.highlights.slice(1).join(" / ");
 
   return (
     <motion.article
-      whileHover={{ scale: 1.012, y: -3, rotate: -0.25 }}
-      className="relative h-full rounded-[28px] border-2 border-black bg-white p-5 transition duration-300 ease-out sm:p-6"
+      whileHover={{ y: -2 }}
+      className="h-full overflow-hidden rounded-[16px] border border-[#e8e2d8] bg-white shadow-[0_10px_28px_rgba(22,34,20,0.045)]"
     >
-      <div className="flex items-start justify-center gap-4 sm:justify-between">
-        <div className="rounded-full border-2 border-black bg-[var(--color-accent)] px-3 py-1 text-xs font-medium">
-          Verified
+      <div className="flex h-full flex-col sm:min-h-[252px] sm:flex-row sm:items-stretch">
+        <div className="relative h-[260px] overflow-hidden border-b border-[#ece6dd] bg-[#d8d4cd] sm:h-auto sm:w-[182px] sm:flex-none sm:self-stretch sm:border-b-0 sm:border-r">
+          {talent.photoUrl ? (
+            <Image
+              src={talent.photoUrl}
+              alt={talent.name}
+              fill
+              sizes="(max-width: 640px) 100vw, 182px"
+              className="object-cover object-top"
+            />
+          ) : (
+            <PlaceholderPortrait />
+          )}
         </div>
-        {talent.note ? (
-          <div className="hidden rotate-1 rounded-full border-2 border-black bg-[var(--color-accent-soft)] px-3 py-1 text-xs font-medium sm:inline-flex">
-            {talent.note}
+
+        <div className="flex min-w-0 flex-1 flex-col bg-[linear-gradient(180deg,#fdfbf7_0%,#faf5ed_100%)] px-4 py-4 sm:px-4 sm:py-[14px]">
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <h3 className="text-[1rem] font-semibold tracking-tight text-[#111111]">
+                {talent.name}
+              </h3>
+              <p className="mt-1 text-[0.8rem] leading-5 text-[#4f5652]">
+                {talent.role}
+              </p>
+            </div>
+
+            <div className="shrink-0 rounded-full bg-[#f7fbf7] px-2 py-1 text-[9px] font-medium text-[#5a7766]">
+              <span className="inline-flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#43c768]" />
+                {talent.availability}
+              </span>
+            </div>
           </div>
-        ) : null}
-      </div>
 
-      <div className="mt-5 flex flex-col items-center gap-4 text-center sm:flex-row sm:text-left">
-        <Avatar {...talent.avatar} />
-        <div className="min-w-0">
-          <h3 className="text-xl font-semibold tracking-tight text-black sm:text-2xl">
-            {displayName}
-          </h3>
-          <p className="mt-1 text-sm text-black/60">{talent.role}</p>
-        </div>
-      </div>
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {talent.skills.map((skill) => (
+              <span
+                key={skill.label}
+                className="rounded-md border border-[#ebe7df] bg-[#f8f4ed] px-2 py-1 text-[9px] leading-none text-[#676d69]"
+              >
+                {skill.label}
+              </span>
+            ))}
+          </div>
 
-      <p className="mt-5 hidden text-sm leading-7 text-black/72 sm:block">
-        {talent.summary}
-      </p>
+          <div className="mt-3 space-y-2 text-[0.76rem] leading-5 text-[#454c48]">
+            <div className="flex items-start gap-2">
+              <Plus className="mt-[4px] h-3 w-3 shrink-0 text-[var(--color-accent)]" />
+              <span>{primaryHighlight}</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Plus className="mt-[4px] h-3 w-3 shrink-0 text-[var(--color-accent)]" />
+              <span>{secondaryHighlights}</span>
+            </div>
+          </div>
 
-      <div className="mt-5 flex flex-wrap justify-center gap-2 sm:mt-6 sm:justify-start">
-        {talent.skills.map((skill, index) => (
-          <span
-            key={skill.label}
-            className={`rounded-full border-2 border-black px-3 py-1 text-xs font-medium text-black ${skill.className} ${
-              index > 1 ? "hidden sm:inline-flex" : ""
-            }`}
+          <button
+            type="button"
+            className="mt-auto inline-flex items-center gap-2 pt-4 text-[0.8rem] font-semibold text-[#111111] transition hover:text-[var(--color-accent)]"
           >
-            {skill.label}
-          </span>
-        ))}
-      </div>
-
-      <div className="mt-6 border-t border-zinc-200 pt-5 sm:mt-7">
-        <div className="flex items-center justify-between gap-3 text-sm">
-          <div className="flex items-center gap-2 text-black/72">
-            <Clock3 className="h-4 w-4" />
-            Experience
-          </div>
-          <span className="font-medium text-black">{talent.experience}</span>
-        </div>
-
-        <div className="mt-4 flex items-center justify-between gap-3 text-sm">
-          <div className="flex items-center gap-2 text-black/72">
-            <CalendarDays className="h-4 w-4" />
-            Availability
-          </div>
-          <span
-            className={`rounded-full border-2 border-black px-3 py-1 text-xs font-medium text-black ${getAvailabilityStyles(
-              talent.availability,
-            )}`}
-          >
-            {talent.availability}
-          </span>
+            View profile
+            <ArrowRight className="h-4 w-4" />
+          </button>
         </div>
       </div>
     </motion.article>

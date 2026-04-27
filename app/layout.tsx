@@ -19,8 +19,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "font-sans",
-          "min-h-screen bg-[#FAFAFA] text-zinc-900",
+          "min-h-screen bg-[#faf8f3] text-[#101111]",
+          "[font-family:Satoshi,Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif]",
         )}
       >
         {children}

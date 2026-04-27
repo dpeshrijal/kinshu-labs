@@ -2,25 +2,17 @@ import type { LucideIcon } from "lucide-react";
 
 export interface TalentSkill {
   label: string;
-  className: string;
-}
-
-export interface TalentAvatarPalette {
-  frame: string;
-  skin: string;
-  hair: string;
-  shirt: string;
 }
 
 export interface TalentProfile {
   name: string;
   role: string;
-  summary: string;
+  subtitle: string;
   skills: TalentSkill[];
-  experience: string;
+  highlights: string[];
   availability: string;
-  note?: string;
-  avatar: TalentAvatarPalette;
+  photoUrl?: string;
+  placeholderLabel: string;
 }
 
 export interface VettingStep {
@@ -58,4 +50,43 @@ export interface HeroMetric {
 export interface FooterLink {
   href: `#${string}`;
   label: string;
+}
+
+export interface NavLink {
+  href: `#${string}`;
+  label: string;
+  hasCaret?: boolean;
+}
+
+export interface TrustedCompany {
+  name: string;
+}
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+  company: string;
+  photoUrl?: string;
+  placeholderLabel: string;
+}
+
+export interface StatItem {
+  value: string;
+  label: string;
+}
+
+export interface FooterColumn {
+  title: string;
+  links: string[];
+}
+
+export interface PricingTier {
+  title: string;
+  hourlyRate: string;
+  monthlyRate: string;
+  vettingHours: string;
+  applicantPool: string;
+  summary: string;
+  featured?: boolean;
 }

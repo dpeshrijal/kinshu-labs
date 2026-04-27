@@ -1,40 +1,68 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, PhoneCall } from "lucide-react";
 
-import { HeroProcessVisual } from "../hero-process-visual";
+import { HeroAiVisual } from "../hero-ai-visual";
 import { ActionLink, Reveal, SectionPill } from "../primitives";
+
+const heroBullets = [
+  "Rigorous vetting process",
+  "Aligned to your timezone",
+  "14-day risk-free trial",
+] as const;
 
 export function HeroSection() {
   return (
-    <section className="relative bg-white">
-      <div className="pointer-events-none absolute left-5 top-24 hidden h-16 w-16 rotate-12 rounded-full border-2 border-black bg-[var(--color-accent-soft)] md:block" />
-      <div className="pointer-events-none absolute bottom-14 right-8 hidden h-10 w-10 -rotate-12 rounded-[14px] border-2 border-black bg-[#FFE1EE] lg:block" />
-      <div className="mx-auto max-w-7xl px-5 pb-16 pt-10 sm:px-6 sm:pb-20 sm:pt-14 lg:px-8 lg:pb-24 lg:pt-20">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+    <section className="relative">
+      <div className="mx-auto max-w-[88rem] px-4 pb-12 pt-10 sm:px-5 sm:pb-14 sm:pt-12 lg:px-6 lg:pb-16 lg:pt-[4.25rem]">
+        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:gap-8">
           <Reveal>
-            <SectionPill tone="lime" className="-rotate-2">
-              Top 1% AI Engineers
+            <SectionPill
+              tone="lime"
+              className="rounded-[13px] px-4 py-[0.7rem] text-[11px] tracking-[0.14em]"
+            >
+              Vetted AI engineers. Zero hiring headache.
             </SectionPill>
-            <h1 className="mt-7 max-w-4xl text-[2.75rem] font-semibold leading-[1.02] tracking-tight text-black sm:mt-8 sm:text-6xl sm:leading-[1] lg:text-[4.65rem]">
-              Senior AI engineers, ready to build
+            <h1 className="mt-6 max-w-[48rem] text-[3rem] font-semibold leading-[0.94] tracking-tight text-[#101111] sm:text-[4.55rem] lg:text-[4.65rem]">
+              Hire elite AI engineers.
+              <span className="mt-1 block text-[var(--color-accent)]">
+                Build what&apos;s next.
+              </span>
             </h1>
-            <p className="mt-5 max-w-xl text-base leading-7 text-black/72 sm:mt-6 sm:max-w-2xl sm:text-xl sm:leading-8">
-              From RAG pipelines to agentic workflows and model infra, we match
-              you with vetted engineers who can start fast and ship in
-              production.
+            <p className="mt-6 max-w-[38rem] text-[1.14rem] leading-[1.85] text-[#38403c]">
+              We help startups and enterprises hire top 1% AI engineers from
+              Nepal. Fast, reliable, and risk-free.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:gap-4">
-              <ActionLink href="#match" tone="primary">
-                Request a match
+
+            <div className="mt-8 flex flex-col gap-3 text-[0.92rem] text-[#2f3734] sm:flex-row sm:flex-wrap sm:items-center sm:gap-8">
+              {heroBullets.map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <CheckCircle2 className="h-[1.05rem] w-[1.05rem] shrink-0 text-[var(--color-accent)]" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
+              <ActionLink
+                href="/hire"
+                tone="primary"
+                className="min-h-[3.75rem] rounded-[12px] px-8 text-[1rem] font-semibold"
+              >
+                Hire AI Engineer
                 <ArrowRight className="h-4 w-4" />
               </ActionLink>
-              <ActionLink href="#featured-talent" tone="secondary">
-                Explore talent
+              <ActionLink
+                href="/hire"
+                tone="secondary"
+                className="min-h-[3.75rem] rounded-[12px] px-8 text-[1rem] font-semibold"
+              >
+                Book a Call
+                <PhoneCall className="h-4 w-4" />
               </ActionLink>
             </div>
           </Reveal>
 
-          <Reveal delay={0.08}>
-            <HeroProcessVisual />
+          <Reveal delay={0.08} className="hidden sm:block">
+            <HeroAiVisual />
           </Reveal>
         </div>
       </div>

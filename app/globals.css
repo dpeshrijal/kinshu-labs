@@ -4,10 +4,10 @@
 
 @layer base {
   :root {
-    --color-accent: #d4ff00;
-    --color-accent-soft: #fff5c9;
-    --color-accent-muted: #eeff9d;
-    --color-accent-rgb: 212 255 0;
+    --color-accent: #1f4f3c;
+    --color-accent-soft: #edf3ef;
+    --color-accent-muted: #d8e7dd;
+    --color-accent-rgb: 31 79 60;
   }
 
   * {
@@ -19,21 +19,27 @@
   }
 
   body {
-    @apply bg-[#FAFAFA] text-zinc-900 antialiased;
+    background:
+      radial-gradient(circle at top center, rgba(241, 232, 212, 0.82), transparent 32%),
+      radial-gradient(circle at 14% 24%, rgba(227, 238, 230, 0.55), transparent 20%),
+      radial-gradient(circle at 86% 20%, rgba(230, 224, 212, 0.52), transparent 18%),
+      linear-gradient(180deg, #faf8f3 0%, #fcfbf8 48%, #f7f4ee 100%);
+    color: #101111;
+    @apply antialiased;
   }
 
   ::selection {
-    background: var(--color-accent-muted);
-    color: #18181b;
+    background: rgba(31, 79, 60, 0.18);
+    color: #101111;
   }
 }
 
 @layer utilities {
   .bg-grid {
     background-image:
-      linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
-    background-size: 72px 72px;
+      linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+    background-size: 56px 56px;
   }
 
   .mask-fade {
@@ -44,5 +50,19 @@
       black 88%,
       transparent
     );
+  }
+
+  .bg-noise-glow {
+    background:
+      radial-gradient(circle at top, rgba(255, 255, 255, 0.85), transparent 44%),
+      radial-gradient(circle at bottom, rgba(228, 236, 230, 0.45), transparent 36%);
+  }
+
+  .bg-orbit {
+    background:
+      radial-gradient(circle at center, rgba(255, 255, 255, 0.94), rgba(245, 242, 236, 0.88) 66%, rgba(233, 228, 218, 0.8) 100%),
+      linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+    background-size: auto, 38px 38px, 38px 38px;
   }
 }
