@@ -47,15 +47,9 @@ export interface HeroMetric {
   label: string;
 }
 
-export interface FooterLink {
-  href: `#${string}`;
-  label: string;
-}
-
 export interface NavLink {
-  href: `#${string}`;
+  href: string;
   label: string;
-  hasCaret?: boolean;
 }
 
 export interface TrustedCompany {
@@ -78,7 +72,10 @@ export interface StatItem {
 
 export interface FooterColumn {
   title: string;
-  links: string[];
+  links: {
+    href: string;
+    label: string;
+  }[];
 }
 
 export interface PricingTier {

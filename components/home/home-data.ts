@@ -17,7 +17,6 @@ import {
 import type {
   EngineerNetworkBenefit,
   FooterColumn,
-  FooterLink,
   NavLink,
   PricingTier,
   StatItem,
@@ -165,22 +164,13 @@ export const techGroups = [
   },
 ] satisfies readonly TechGroup[];
 
-export const footerLinks = [
-  { href: "#how-it-works", label: "How It Works" },
-  { href: "#developers", label: "Software Developers" },
-  { href: "#solutions", label: "Solutions" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#about", label: "About Us" },
-  { href: "#footer", label: "Resources" },
-] satisfies readonly FooterLink[];
-
 export const navLinks = [
-  { href: "#how-it-works", label: "How It Works" },
-  { href: "#developers", label: "Software Developers" },
-  { href: "#solutions", label: "Solutions" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#about", label: "About Us" },
-  { href: "#footer", label: "Resources", hasCaret: true },
+  { href: "/hiring-process", label: "How It Works" },
+  { href: "/software-developers", label: "Software Developers" },
+  { href: "/solutions", label: "Solutions" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/about", label: "About Us" },
+  { href: "/resources", label: "Resources" },
 ] satisfies readonly NavLink[];
 
 export const testimonials = [
@@ -252,14 +242,27 @@ export const engineerNetworkBenefits = [
 export const footerColumns = [
   {
     title: "Company",
-    links: ["About Us", "Careers", "Blog", "Contact"],
+    links: [
+      { href: "/about", label: "About Us" },
+      { href: "/careers", label: "Careers" },
+      { href: "/contact", label: "Contact" },
+    ],
   },
   {
     title: "Services",
-    links: ["Software Developers", "Solutions", "Hiring Process", "Pricing"],
+    links: [
+      { href: "/software-developers", label: "Software Developers" },
+      { href: "/solutions", label: "Solutions" },
+      { href: "/hiring-process", label: "Hiring Process" },
+      { href: "/pricing", label: "Pricing" },
+    ],
   },
   {
     title: "Resources",
-    links: ["Case Studies", "Guides", "FAQ", "Docs"],
+    links: [
+      { href: "/case-studies", label: "Case Studies" },
+      { href: "/guides", label: "Guides" },
+      { href: "/faq", label: "FAQ" },
+    ],
   },
 ] satisfies readonly FooterColumn[];

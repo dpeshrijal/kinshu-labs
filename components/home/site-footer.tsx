@@ -25,7 +25,13 @@ export function SiteFooter() {
               <h3 className="text-sm font-semibold text-white">{column.title}</h3>
               <div className="mt-4 space-y-3 text-sm text-white/70">
                 {column.links.map((link) => (
-                  <div key={link}>{link}</div>
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block transition hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -48,7 +54,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
-          <span>© 2024 Kinshu Labs. All rights reserved.</span>
+          <span>&copy; 2024 Kinshu Labs. All rights reserved.</span>
           <div className="flex items-center gap-6">
             <span>Privacy Policy</span>
             <span>Terms of Service</span>
