@@ -2,7 +2,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import type { CSSProperties } from "react";
 
 import { HeroAiVisual } from "../hero-ai-visual";
-import { ActionLink, Reveal, SectionPill } from "../primitives";
+import { ActionLink, Reveal } from "../primitives";
 
 const heroBullets = [
   "Rigorous vetting process",
@@ -14,18 +14,12 @@ export function HeroSection() {
   return (
     <section className="relative">
       <div className="mx-auto max-w-[88rem] px-4 pb-10 pt-8 sm:px-5 sm:pb-14 sm:pt-12 lg:px-6 lg:pb-16 lg:pt-[4.25rem]">
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] lg:gap-8">
+        <div className="grid items-center gap-12 min-[1440px]:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] min-[1440px]:gap-8">
           <Reveal>
-            <SectionPill
-              tone="lime"
-              className="rounded-[13px] px-4 py-[0.65rem] text-[10px] tracking-[0.14em] sm:text-[11px]"
-            >
-              Vetted software developers. Zero hiring headache.
-            </SectionPill>
-            <h1 className="mt-5 max-w-[36rem] text-[3rem] font-semibold leading-[0.95] tracking-tight text-[#101111] sm:mt-6 sm:max-w-[48rem] sm:text-[4.55rem] lg:text-[4.65rem]">
-              Hire elite{" "}
+            <h1 className="max-w-[36rem] text-[2.55rem] font-semibold leading-[0.92] tracking-tight text-[#101111] min-[380px]:text-[2.8rem] sm:max-w-[48rem] md:text-[3.9rem] md:leading-[0.95] min-[1440px]:text-[4.65rem]">
+              <span className="block sm:inline">Hire elite</span>{" "}
               <span
-                className="hero-typewriter-shell text-[var(--color-accent)]"
+                className="hero-typewriter-shell text-[2.18rem] leading-[0.95] text-[var(--color-accent)] min-[380px]:text-[2.38rem] md:text-[3.9rem] md:leading-[0.95] min-[1440px]:text-[4.65rem]"
                 style={{ "--typing-characters": 20 } as CSSProperties}
               >
                 <span className="hero-typewriter-text">
@@ -67,7 +61,7 @@ export function HeroSection() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.08} className="hidden sm:block">
+          <Reveal delay={0.08} className="hidden min-[1440px]:block">
             <HeroAiVisual />
           </Reveal>
         </div>

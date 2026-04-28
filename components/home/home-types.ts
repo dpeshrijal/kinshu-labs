@@ -84,7 +84,6 @@ export interface PricingTier {
   monthlyRate: string;
   vettingHours: string;
   applicantPool: string;
-  summary: string;
   featured?: boolean;
 }
 

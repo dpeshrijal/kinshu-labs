@@ -67,19 +67,27 @@
   }
 
   .hero-typewriter-shell {
-    display: inline;
-    width: auto;
+    display: block;
+    width: min(calc(var(--typing-characters) * 1ch), 100%);
     max-width: 100%;
     vertical-align: baseline;
   }
 
   .hero-typewriter-text {
-    display: inline;
+    display: inline-block;
+    width: 0;
+    max-width: max-content;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 0.075em solid currentColor;
+    animation:
+      hero-type 2.25s steps(var(--typing-characters), end) 0.45s forwards,
+      hero-caret 0.78s step-end infinite;
   }
 
   @keyframes hero-type {
     to {
-      width: calc(var(--typing-characters) * 1ch);
+      width: min(calc(var(--typing-characters) * 1ch), 100%);
     }
   }
 
@@ -92,25 +100,20 @@
   @media (min-width: 640px) {
     .hero-typewriter-shell {
       display: inline-grid;
-      width: calc(var(--typing-characters) * 1ch);
+      width: min(calc(var(--typing-characters) * 1ch), 100%);
+      font-size: inherit;
+      line-height: inherit;
     }
 
     .hero-typewriter-text {
-      display: inline-block;
-      width: 0;
-      max-width: max-content;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 0.075em solid currentColor;
-      animation:
-        hero-type 2.25s steps(var(--typing-characters), end) 0.45s forwards,
-        hero-caret 0.78s step-end infinite;
+      font-size: inherit;
+      line-height: inherit;
     }
   }
 
-  @media (min-width: 640px) and (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce) {
     .hero-typewriter-text {
-      width: calc(var(--typing-characters) * 1ch);
+      width: min(calc(var(--typing-characters) * 1ch), 100%);
       animation: none;
     }
   }

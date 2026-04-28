@@ -91,10 +91,6 @@ export function PricingLevelsSection() {
 
                 <div className="mx-auto mt-6 h-px w-full bg-[#ebe7df] sm:mt-7" />
 
-                <p className="mx-auto mt-5 max-w-[16rem] text-[0.96rem] leading-[1.6] text-[#5a625e] sm:mt-6 sm:text-[1rem] sm:leading-[1.65]">
-                  {tier.summary}
-                </p>
-
                 <Link
                   href="/hire"
                   className="mt-6 inline-flex min-h-[3.15rem] w-full items-center justify-center gap-3 rounded-[12px] bg-[var(--color-accent)] px-8 text-[0.98rem] font-semibold text-white shadow-[0_14px_32px_rgba(31,79,60,0.18)] transition hover:bg-[#173f31] sm:mt-7 sm:min-h-[3.35rem] sm:text-[1rem]"

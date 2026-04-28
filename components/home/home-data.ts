@@ -194,27 +194,24 @@ export const pricingTiers = [
   {
     title: "Junior Engineer",
     hourlyRate: "$7.95/hr",
-    monthlyRate: "($1272/mo)",
+    monthlyRate: "Full-time (160 hrs): $1,272/mo",
     vettingHours: "Vetted engineers",
     applicantPool: "Top 10% talent",
-    summary: "Great for small tasks and early-stage projects.",
   },
   {
     title: "Mid-Level Engineer",
     hourlyRate: "$12.95/hr",
-    monthlyRate: "($2072/mo)",
+    monthlyRate: "Full-time (160 hrs): $2,072/mo",
     vettingHours: "Vetted engineers",
     applicantPool: "Top 5% talent",
-    summary: "Ideal for most projects and growing teams.",
     featured: true,
   },
   {
     title: "Senior Engineer",
     hourlyRate: "$19.95/hr",
-    monthlyRate: "($3192/mo)",
+    monthlyRate: "Full-time (160 hrs): $3,192/mo",
     vettingHours: "Vetted engineers",
     applicantPool: "Top 3% talent",
-    summary: "Best for complex projects and technical leadership.",
   },
 ] satisfies readonly PricingTier[];
 
