@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import type { CSSProperties } from "react";
 
 import { HeroAiVisual } from "../hero-ai-visual";
 import { ActionLink, Reveal, SectionPill } from "../primitives";
@@ -23,8 +24,13 @@ export function HeroSection() {
             </SectionPill>
             <h1 className="mt-5 max-w-[36rem] text-[3rem] font-semibold leading-[0.95] tracking-tight text-[#101111] sm:mt-6 sm:max-w-[48rem] sm:text-[4.55rem] lg:text-[4.65rem]">
               Hire elite{" "}
-              <span className="text-[var(--color-accent)]">
-                software developers.
+              <span
+                className="hero-typewriter-shell text-[var(--color-accent)]"
+                style={{ "--typing-characters": 20 } as CSSProperties}
+              >
+                <span className="hero-typewriter-text">
+                  software developers.
+                </span>
               </span>
             </h1>
             <p className="mt-5 max-w-[30rem] text-[1.03rem] leading-[1.75] text-[#38403c] sm:mt-6 sm:max-w-[38rem] sm:text-[1.14rem] sm:leading-[1.85]">
