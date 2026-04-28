@@ -6,7 +6,6 @@ import type { LucideIcon } from "lucide-react";
 import {
   ArrowLeft,
   ArrowRight,
-  BriefcaseBusiness,
   Check,
   Mail,
 } from "lucide-react";
@@ -498,16 +497,8 @@ export function HireFunnelPage() {
               We&apos;ll match you with a vetted engineer within 24 hours.
             </p>
 
-            <button
-              type="button"
-              className="mt-10 inline-flex min-h-[3.85rem] items-center justify-center gap-3 rounded-[12px] border border-[#e4dfd6] bg-white px-10 text-[1.08rem] font-medium text-[#111111] shadow-[0_12px_30px_rgba(20,32,18,0.04)] transition hover:bg-[#fbfaf7]"
-            >
-              <BriefcaseBusiness className="h-5 w-5 text-[var(--color-accent)]" />
-              Book a call
-            </button>
-
-            <p className="mt-5 text-[1.08rem] text-[#7b817d]">
-              or we&apos;ll email you shortly.
+            <p className="mt-8 text-[1.08rem] text-[#7b817d]">
+              We&apos;ll email you shortly with the next steps.
             </p>
 
             <Link

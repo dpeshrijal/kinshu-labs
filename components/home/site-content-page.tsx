@@ -45,6 +45,7 @@ export function SiteContentPage({ page }: { page: SitePageData }) {
                 </ActionLink>
               ) : null}
             </div>
+
           </Reveal>
 
           <Reveal delay={0.08}>
@@ -123,13 +124,13 @@ export function SiteContentPage({ page }: { page: SitePageData }) {
                     </p>
                   </div>
 
-                  <div className="grid content-start gap-3 sm:grid-cols-2">
+                  <div className="grid content-center gap-3 sm:grid-cols-2">
                     {section.items.map((item) => (
                       <div
                         key={item}
-                        className="rounded-[18px] border border-[#e6e1d7] bg-white px-4 py-4 text-sm font-medium text-[#29312d]"
+                        className="flex min-h-[3.35rem] items-center rounded-[18px] border border-[#e6e1d7] bg-white px-4 py-3 text-sm font-medium text-[#29312d]"
                       >
-                        <span className="mr-2 inline-flex h-2 w-2 rounded-full bg-[var(--color-accent)]" />
+                        <span className="mr-2.5 h-2 w-2 shrink-0 rounded-full bg-[var(--color-accent)]" />
                         {item}
                       </div>
                     ))}

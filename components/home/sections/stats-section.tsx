@@ -6,7 +6,7 @@ const statIcons = [Users, Users, ShieldCheck, Heart] as const;
 
 export function StatsSection() {
   return (
-    <section id="pricing">
+    <section id="stats">
       <div className="mx-auto max-w-7xl px-5 py-4 sm:px-6 sm:py-6 lg:px-8">
         <div className="grid gap-4 rounded-[20px] border border-[#ebe7df] bg-white p-5 shadow-[0_16px_36px_rgba(24,38,24,0.04)] sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, index) => {

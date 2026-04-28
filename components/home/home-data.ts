@@ -165,12 +165,10 @@ export const techGroups = [
 ] satisfies readonly TechGroup[];
 
 export const navLinks = [
-  { href: "/hiring-process", label: "How It Works" },
-  { href: "/software-developers", label: "Software Developers" },
-  { href: "/solutions", label: "Solutions" },
-  { href: "/pricing", label: "Pricing" },
+  { href: "/#how-it-works", label: "How It Works" },
+  { href: "/#solutions", label: "Solutions" },
+  { href: "/#pricing", label: "Pricing" },
   { href: "/about", label: "About Us" },
-  { href: "/resources", label: "Resources" },
 ] satisfies readonly NavLink[];
 
 export const testimonials = [
@@ -244,24 +242,19 @@ export const footerColumns = [
     title: "Company",
     links: [
       { href: "/about", label: "About Us" },
-      { href: "/careers", label: "Careers" },
-      { href: "/contact", label: "Contact" },
+      { href: "/join", label: "Careers" },
     ],
   },
   {
     title: "Services",
     links: [
-      { href: "/software-developers", label: "Software Developers" },
-      { href: "/solutions", label: "Solutions" },
-      { href: "/hiring-process", label: "Hiring Process" },
-      { href: "/pricing", label: "Pricing" },
+      { href: "/#solutions", label: "Solutions" },
+      { href: "/#pricing", label: "Pricing" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { href: "/case-studies", label: "Case Studies" },
-      { href: "/guides", label: "Guides" },
       { href: "/faq", label: "FAQ" },
     ],
   },
