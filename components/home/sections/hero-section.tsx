@@ -16,11 +16,11 @@ export function HeroSection() {
       <div className="mx-auto max-w-[88rem] px-4 pb-10 pt-8 sm:px-5 sm:pb-14 sm:pt-12 lg:px-6 lg:pb-16 lg:pt-[4.25rem]">
         <div className="grid items-center gap-12 min-[1440px]:grid-cols-[minmax(0,0.94fr)_minmax(0,1.06fr)] min-[1440px]:gap-8">
           <Reveal>
-            <h1 className="max-w-[36rem] text-[2.55rem] font-semibold leading-[0.92] tracking-tight text-[#101111] min-[380px]:text-[2.8rem] sm:max-w-[48rem] md:text-[3.9rem] md:leading-[0.95] min-[1440px]:text-[4.65rem]">
+            <h1 className="max-w-[36rem] text-[2.55rem] font-semibold leading-[0.92] tracking-tight text-[#101111] min-[380px]:text-[2.8rem] sm:max-w-[48rem] md:text-[3.9rem] md:leading-[0.95] min-[1440px]:text-[4.35rem]">
               <span className="block sm:inline">Hire elite</span>{" "}
               <span
-                className="hero-typewriter-shell text-[2.18rem] leading-[0.95] text-[var(--color-accent)] min-[380px]:text-[2.38rem] md:text-[3.9rem] md:leading-[0.95] min-[1440px]:text-[4.65rem]"
-                style={{ "--typing-characters": 20 } as CSSProperties}
+                className="hero-typewriter-shell text-[2.18rem] leading-[0.95] text-[var(--color-accent)] min-[380px]:text-[2.38rem] md:text-[3.9rem] md:leading-[0.95] min-[1440px]:text-[4.35rem]"
+                style={{ "--typing-characters": 22 } as CSSProperties}
               >
                 <span className="hero-typewriter-text">
                   software developers.
